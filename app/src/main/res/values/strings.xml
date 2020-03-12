@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AplusApp</string>
+    <string name="app_brand">NVIVID Technologies</string>
+
+    <string name="app_signIn">Sign in</string>
+    <string name="app_signInSub">with APlus account</string>
+    <string name="app_forgot_password">forgot password ?</string>
+    <string name="app_username_hint">user name</string>
+    <string name="app_password_hint">password</string>
+    <string name="app_login_checkbox_value">Keep me signed in </string>
 </resources>
