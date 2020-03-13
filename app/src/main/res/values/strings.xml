@@ -8,4 +8,11 @@
     <string name="app_username_hint">user name</string>
     <string name="app_password_hint">password</string>
     <string name="app_login_checkbox_value">Keep me signed in </string>
+
+    <string name="app_home_card_sale">Sales</string>
+    <string name="app_home_card_report">Reports</string>
+    <string name="app_home_card_inventory">Inventory</string>
+    <string name="app_home_card_orders">Orders</string>
+    <string name="app_home_card_customer">Customers</string>
+    <string name="app_home_card_employee">Employees</string>
 </resources>

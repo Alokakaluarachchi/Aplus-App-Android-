@@ -195,4 +195,7 @@
     <color name="switch_thumb_color">#fffffd</color>
     <color name="switch_track_color">#0c5892</color>
     <color name="radio_button_border">#bfbfbf</color>
+
+    <color name="colorPrimary_light">#03A9F4</color>
+    <color name="blue_light">#B8E6FC</color>
 </resources>
