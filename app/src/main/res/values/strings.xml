@@ -15,4 +15,16 @@
     <string name="app_home_card_orders">Orders</string>
     <string name="app_home_card_customer">Customers</string>
     <string name="app_home_card_employee">Employees</string>
+
+    <string name="app_reset">Reset</string>
+
+    <!-- common popup text -->
+    <string name="app_popup_close_icon">X</string>
+
+    <!-- end -->
+
+    <!-- reset password popup props -->
+    <string name="app_reset_password_instruction_1">Confirm your email address we\'ll send</string>
+    <string name="app_reset_password_instruction_2">the instructions</string>
+    <!-- end -->
 </resources>

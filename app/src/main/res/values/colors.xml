@@ -198,4 +198,9 @@
 
     <color name="colorPrimary_light">#03A9F4</color>
     <color name="blue_light">#B8E6FC</color>
+
+    <color name="bluedark_popup">#2f333f</color>
+    <color name="bluelight_popup">#49acd5</color>
+    <color name="green_poup">#45bc62</color>
+    <color name="orange_popup">#eaad43</color>
 </resources>
