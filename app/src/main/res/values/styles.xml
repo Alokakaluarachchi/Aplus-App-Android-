@@ -7,6 +7,9 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
+        <item name="android:statusBarColor">@color/DarkGray</item>
+        <item name="android:windowLightStatusBar">true</item>
+
         <!-- New MaterialComponents attributes. -->
 
         <item name="textAppearanceHeadline1">@style/TextAppearance.MaterialComponents.Headline1</item>
@@ -26,6 +29,7 @@
         <item name="colorControlNormal">#c5c5c5</item>
         <item name="colorControlActivated">@color/White</item>
         <item name="colorControlHighlight">@color/White</item>
+        <item name="switchStyle">@style/Widget.MaterialComponents.CompoundButton.Switch</item>
 
     </style>
 
