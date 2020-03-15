@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_home"
+    android:background="@drawable/mat_bg"
+
     tools:context=".activity.HomeActivity">
 
     <GridLayout
@@ -309,9 +310,9 @@
         app:active_item_color="@color/colorAccent"
         app:centre_button_color="@color/colorPrimary_light"
         app:centre_button_icon="@drawable/ic_home_black_24dp"
-        app:inactive_item_color="@color/Black"
+        app:inactive_item_color="@color/white_with_alpha"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:space_background_color="@color/White"
+        app:space_background_color="#36353D"
         app:active_centre_button_icon_color="@color/White"
         app:space_item_icon_only_size="@dimen/space_item_icon_only_size"
         app:inactive_centre_button_icon_color="@color/White"
