@@ -14,7 +14,7 @@ import com.example.aplusapp.R;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton btnLogin;
-    private Button btnForgotPassword;
+    private Button btnForgotPassword, btnReqAcount;
     private Dialog popupDialog;
 
     @Override
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnLogin = findViewById(R.id.btnLogin);
         btnForgotPassword = findViewById(R.id.btnForgotPassword);
+        btnReqAcount = findViewById(R.id.btnReqAccount);
 
         //popupDialog.setContentView(R.layout.forget_pw_popup);
 
@@ -41,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
                 ForgotPasswordPopup forgotPasswordPopup = new ForgotPasswordPopup();
                 forgotPasswordPopup.show(getSupportFragmentManager(),null);
 
+            }
+        });
+
+        btnReqAcount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ReqAccountActivity.class));
             }
         });
     }

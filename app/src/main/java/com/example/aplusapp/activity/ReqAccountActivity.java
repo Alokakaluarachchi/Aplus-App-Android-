@@ -5,12 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.aplusapp.R;
+import com.jaredrummler.materialspinner.MaterialSpinner;
 
 public class ReqAccountActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_req_account);
+
+
+
     }
 }
