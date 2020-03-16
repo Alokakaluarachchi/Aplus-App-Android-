@@ -28,6 +28,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
+                android:textSize="12dp"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -45,11 +46,32 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
+                android:textSize="12dp"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/spinnerRole"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="20dp"
+            app:ms_multiline="false"
+            app:ms_hint="select a Role"
+            app:ms_hintTextSize="12dp"
+            app:ms_enableFloatingLabel="true"
+            app:ms_enableErrorLabel="false"
+            app:ms_floatingLabelText="Role"
+            app:ms_baseColor="@color/Blue"
+            app:ms_highlightColor="@color/DeepPink"
+            app:ms_errorColor="@color/Red"
+            app:ms_thickness="2dp"
+            app:ms_hintColor="@color/SeaGreen"
+            app:ms_arrowColor="@color/Black"
+            app:ms_arrowSize="12dp"
+            app:ms_alignLabels="true"
+            app:ms_floatingLabelColor="@color/SeaGreen"/>
 
 
     </LinearLayout>
