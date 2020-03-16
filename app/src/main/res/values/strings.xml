@@ -6,8 +6,8 @@
     <string name="app_signInSub">with APlus account</string>
     <string name="app_forgot_password">forgot password ?</string>
     <string name="app_req_account">Don\'t have a account? request a new account</string>
-    <string name="app_username_hint">user name</string>
-    <string name="app_password_hint">password</string>
+    <string name="app_username_hint">User name</string>
+    <string name="app_password_hint">Password</string>
     <string name="app_login_checkbox_value">Keep me signed in </string>
 
     <string name="app_home_card_sale">Sales</string>
@@ -17,7 +17,15 @@
     <string name="app_home_card_customer">Customers</string>
     <string name="app_home_card_employee">Employees</string>
 
+    <string name="app_req_account1">Request</string>
+    <string name="app_req_account2">an</string>
+    <string name="app_req_account3">account</string>
+
     <string name="app_reset">Reset</string>
+    <string name="app_select_role">Select a role</string>
+    <string name="app_request">Request</string>
+
+    <string name="app_email">E-mail</string>
 
     <!-- common popup text -->
     <string name="app_popup_close_icon">X</string>
