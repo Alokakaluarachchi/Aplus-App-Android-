@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/inventory"
+    tools:context=".MainActivity"
+
+
+    >
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="200dp"/>
+
+    <EditText
+
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="50dp"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:gravity="center_horizontal"
+        android:hint="Product Code"
+        android:textColorHint="@android:color/holo_blue_dark" />
+
+    <EditText
+
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:textColorHint="@android:color/holo_blue_dark"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:gravity="center_horizontal"
+        android:hint="Product Name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+
+    <EditText
+
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:textColorHint="@android:color/holo_blue_dark"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:gravity="center_horizontal"
+        android:hint="Quatity"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+
+    <EditText
+
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:textColorHint="@android:color/holo_blue_dark"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:gravity="center_horizontal"
+        android:hint="Category"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+    <EditText
+
+    android:layout_marginTop="20dp"
+    android:layout_marginLeft="50dp"
+    android:layout_marginRight="50dp"
+    android:textColorHint="@android:color/holo_blue_dark"
+    android:backgroundTint="@android:color/holo_blue_light"
+    android:gravity="center_horizontal"
+    android:hint="Sales Price"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@color/CornflowerBlue"
+        android:text="Add Inventory"
+        android:textColor="@color/Black" />
+
+
+</LinearLayout>

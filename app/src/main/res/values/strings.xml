@@ -1,4 +1,5 @@
 <resources>
+    <!-- app settings -->
     <string name="app_name">AplusApp</string>
     <string name="app_brand">NVIVID Technologies</string>
 
@@ -9,6 +10,7 @@
     <string name="app_username_hint">User name</string>
     <string name="app_password_hint">Password</string>
     <string name="app_login_checkbox_value">Keep me signed in </string>
+    <string name="app_branch">Branch</string>
 
     <string name="app_home_card_sale">Sales</string>
     <string name="app_home_card_report">Reports</string>
@@ -26,14 +28,22 @@
     <string name="app_request">Request</string>
 
     <string name="app_email">E-mail</string>
+    <string name="app_role">Role</string>
+    <string name="app_contact">Contact</string>
+    <string name="app_back_to_home">Back to\nHome</string>
+    <string name="app_account_info">Account Info</string>
 
-    <!-- common popup text -->
+    <!-- common text -->
     <string name="app_popup_close_icon">X</string>
-
-    <!-- end -->
 
     <!-- reset password popup props -->
     <string name="app_reset_password_instruction_1">Confirm your email address we\'ll send</string>
     <string name="app_reset_password_instruction_2">the instructions</string>
-    <!-- end -->
+
+    <!-- dummy text -->
+    <string name="app_dummy_user_name">shalitha senanayaka</string>
+    <string name="app_dummy_user_role">administrator</string>
+    <string name="app_dummy_user_organization">ABC branch</string>
+    <string name="app_dummy_user_email">shalithax@gmail.com</string>
+    <string name="app_dummy_user_contact">077 194 005 5</string>
 </resources>
