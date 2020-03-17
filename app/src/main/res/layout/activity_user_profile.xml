@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.UserProfileActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/background"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/app_dummy_user_name"
+            android:src="@drawable/sample_profile" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_dummy_user_name"
+            android:textColor="@color/white_with_alpha"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_dummy_user_role"
+            android:textColor="@color/white_with_alpha"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="20dp"
+            android:background="@color/White"
+            android:gravity="center">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/background" />
+
+            <TextView
+                style="@style/profileStyledBackButton"
+                android:text="@string/app_back_to_home" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textSize="30sp"
+            android:textColor="@color/TransparentBlack"
+            android:text="@string/app_account_info"
+            android:layout_marginBottom="20dp"/>
+
+        <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <ImageView
+                android:id="@+id/nameImageView2"
+                android:src="@drawable/ic_gmail"
+                android:contentDescription="@string/app_email"
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:id="@+id/nameTextView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_email"
+                android:layout_toEndOf="@id/nameImageView2"
+                android:textColor="@color/Black"
+                android:layout_marginStart="10dp"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_dummy_user_email"
+                android:layout_toEndOf="@id/nameImageView2"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/gray_text_color"
+                android:layout_marginStart="10dp"
+                android:textSize="16sp"/>
+
+        </RelativeLayout>
+        <View style="@style/proifleDetailsView" />
+
+        <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <ImageView
+                android:id="@+id/nameImageView"
+                android:src="@drawable/ic_shop"
+                android:contentDescription="@string/app_branch"
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_branch"
+                android:layout_toEndOf="@id/nameImageView"
+                android:textColor="@color/Black"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_dummy_user_organization"
+                android:layout_marginTop="30dp"
+                android:layout_toEndOf="@id/nameImageView"
+                android:textColor="@color/gray_text_color"
+                android:layout_marginStart="10dp"
+                android:textSize="16sp"/>
+
+        </RelativeLayout>
+        <View style="@style/proifleDetailsView" />
+
+        <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <ImageView
+                android:id="@+id/nameImageView3"
+                android:src="@drawable/ic_role"
+                android:contentDescription="@string/app_role"
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:id="@+id/nameTextView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_role"
+                android:layout_toEndOf="@id/nameImageView3"
+                android:textColor="@color/Black"
+                android:layout_marginStart="10dp"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_dummy_user_role"
+                android:layout_toEndOf="@id/nameImageView3"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/gray_text_color"
+                android:layout_marginStart="10dp"
+                android:textSize="16sp"/>
+
+        </RelativeLayout>
+        <View style="@style/proifleDetailsView" />
+
+        <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <ImageView
+                android:id="@+id/nameImageView4"
+                android:src="@drawable/ic_call"
+                android:contentDescription="@string/app_contact"
+                style="@style/profileDetailsImage" />
+
+            <TextView
+                android:id="@+id/nameTextView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_contact"
+                android:layout_toEndOf="@id/nameImageView4"
+                android:textColor="@color/Black"
+                android:layout_marginStart="10dp"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_dummy_user_contact"
+                android:layout_toEndOf="@id/nameImageView4"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/gray_text_color"
+                android:layout_marginStart="10dp"
+                android:textSize="16sp"/>
+
+        </RelativeLayout>
+        <View style="@style/proifleDetailsView" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
