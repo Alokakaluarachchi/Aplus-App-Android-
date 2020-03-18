@@ -9,10 +9,10 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="285dp"
-        android:layout_height="78dp"
+        android:layout_width="276dp"
+        android:layout_height="70dp"
         android:layout_marginTop="28dp"
-        android:text="Customer deletils"
+        android:text="Customer Detail"
         android:textColor="#FFEB3B"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,8 @@
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.176">
 
-        <TableRow>
+        <TableRow
+            android:textColor="@color/White">
 
             <TextView
                 android:layout_column=""
