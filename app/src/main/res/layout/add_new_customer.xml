@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/app_login_background"
+    android:background="@drawable/background"
     tools:context=".activity.MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="0dp" />
+        app:layout_constraintGuide_begin="-6dp" />
 
     <TextView
         android:id="@+id/addnewcustomer"
