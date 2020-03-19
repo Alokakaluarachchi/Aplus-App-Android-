@@ -96,6 +96,10 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+
+
+
+
         <LinearLayout
             android:id="@+id/layoutmain"
             android:layout_width="match_parent"
@@ -146,7 +150,7 @@
         </LinearLayout>
 
 
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
@@ -165,5 +169,12 @@
             android:textSize="12sp" />
     </LinearLayout>
 
+        <com.anychart.AnyChartView
+            android:id="@+id/any_chart_view"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            tools:ignore="MissingConstraints" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
