@@ -36,7 +36,7 @@ public class CategoryActivity extends Fragment {
         btnInventory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new CustomerDetailsActivity()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new InvetoryList()).commit();
             }
         });
 
