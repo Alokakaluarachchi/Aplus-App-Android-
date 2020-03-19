@@ -263,6 +263,8 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:background="@color/White"
+                android:id="@+id/btnUsers"
+                android:clickable="true"
                 android:orientation="vertical">
 
                 <ImageView
