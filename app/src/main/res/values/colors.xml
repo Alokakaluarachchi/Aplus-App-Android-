@@ -89,6 +89,7 @@
     <color name="DarkViolet">#9400D3</color>
     <color name="MediumPurple">#9370DB</color>
     <color name="LightGreen">#90EE90</color>
+    <color name="green">#14aa28</color>
     <color name="DarkSeaGreen">#8FBC8F</color>
     <color name="SaddleBrown">#8B4513</color>
     <color name="DarkMagenta">#8B008B</color>
@@ -203,5 +204,8 @@
     <color name="bluelight_popup">#49acd5</color>
     <color name="green_poup">#45bc62</color>
     <color name="orange_popup">#eaad43</color>
+
+
+    <color name="active_center_button">#F44336</color>
 
 </resources>

@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tableLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/inventory"
+    android:shrinkColumns="*"
+    android:gravity="center"
+    android:orientation="vertical"
+
+    android:stretchColumns="*"
+    tools:context=".MainActivity">
+
+    <TableRow
+        android:id="@+id/tableRow4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/badge_left_margin"
+            android:layout_span="9"
+            android:background="@color/CadetBlue"
+            android:gravity="center"
+            android:padding="@dimen/badge_left_margin"
+            android:text="@string/inventory_table"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:typeface="serif" />
+    </TableRow>
+    <TableRow
+        android:id="@+id/tableRow11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/badge_left_margin"
+        android:background="@color/PowderBlue">
+
+        <TextView
+            android:id="@+id/TextView"
+            android:layout_marginRight="@dimen/badge_left_margin"
+
+            android:text="ID"
+            android:textStyle="bold"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            ></TextView>
+
+        <TextView
+            android:id="@+id/TextView07"
+            android:text="@string/name"
+            android:textStyle="bold"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:typeface="serif"></TextView>
+
+        <TextView
+            android:id="@+id/TextView03"
+            android:text="@string/quatity"
+            android:textStyle="bold"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:typeface="serif"></TextView>
+
+
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:text="@string/price"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:typeface="serif"></TextView>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:text="@string/update"
+            android:textStyle="bold"
+            android:typeface="serif"></TextView>
+
+        <TextView
+            android:id="@+id/textView51"
+            android:text="@string/delete"
+            android:textStyle="bold"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:typeface="serif"></TextView>
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/badge_left_margin"
+        android:background="@color/bluelight_popup">
+
+        <TextView
+            android:id="@+id/TextView21"
+            android:layout_marginRight="@dimen/badge_left_margin"
+            android:background="@color/bluelight_popup"
+            android:text="@string/_001"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/TextView22"
+            android:text="@string/in1"
+            android:typeface="serif"></TextView>
+
+        <TextView
+            android:id="@+id/TextView23"
+            android:text="@string/_100"
+            android:typeface="serif"></TextView>
+
+
+
+        <TextView
+            android:id="@+id/TextView25"
+            android:text="$10"
+            android:typeface="serif"></TextView>
+
+        <Button
+            android:id="@+id/clientimain"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@drawable/shape_button1"
+            android:text="@string/update"/>
+
+        <Button
+            android:id="@+id/clientimain1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:text="@string/delete"
+            android:background="@drawable/shape_button2"/>
+    </TableRow>
+
+
+    <TableRow
+        android:id="@+id/tableRow13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/badge_left_margin"
+        android:background="@color/bluelight_popup">
+
+        <TextView
+            android:id="@+id/TextView31"
+            android:layout_marginRight="@dimen/badge_left_margin"
+            android:background="@color/bluelight_popup"
+            android:text="@string/_002"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/TextView32"
+            android:text="@string/in2"
+            android:typeface="serif"></TextView>
+
+        <TextView
+            android:id="@+id/TextView33"
+            android:text="@string/_100"
+            android:typeface="serif"></TextView>
+
+
+
+        <TextView
+            android:id="@+id/TextView35"
+            android:text="@string/_15"
+            android:typeface="serif"></TextView>
+
+        <Button
+            android:id="@+id/clientimain31"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@drawable/shape_button1"
+            android:text="@string/update"/>
+
+        <Button
+            android:id="@+id/clientimain32"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@drawable/shape_button2"
+            android:text="@string/delete" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow40"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/badge_left_margin"
+        android:background="@color/bluelight_popup">
+
+        <TextView
+            android:id="@+id/TextView41"
+            android:layout_marginRight="@dimen/badge_left_margin"
+            android:background="@color/bluelight_popup"
+            android:text="@string/_003"
+
+            ></TextView>
+
+        <TextView
+            android:id="@+id/TextView42"
+            android:text="@string/in2"
+            android:typeface="serif"></TextView>
+
+        <TextView
+            android:id="@+id/TextView43"
+            android:text="@string/_150"
+            android:typeface="serif"></TextView>
+
+
+
+        <TextView
+            android:id="@+id/TextView45"
+            android:text="@string/_12"
+            android:typeface="serif"></TextView>
+
+        <Button
+            android:id="@+id/clientimain4"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@drawable/shape_button1"
+            android:text="@string/update"/>
+
+        <Button
+            android:id="@+id/clientimain41"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@drawable/shape_button2"
+            android:text="@string/delete" />
+    </TableRow>
+
+
+
+
+
+
+
+
+
+
+</TableLayout>

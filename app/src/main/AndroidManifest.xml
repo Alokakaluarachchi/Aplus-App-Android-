@@ -13,6 +13,17 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.ReqAccountActivity" />
+
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".activity.CreateOrderActivity"></activity>
+
+        <activity android:name=".activity.UserListActivity"></activity>
+        <activity android:name=".activity.CategoryActivity" />
+        <activity android:name=".activity.UserProfileActivity" />
+        <activity android:name=".activity.ReqAccountActivity" />
+
+
         <activity android:name=".activity.HomeActivity" />
         <activity android:name=".activity.OrderActivity"/>
         <activity android:name=".activity.CashierActivity">

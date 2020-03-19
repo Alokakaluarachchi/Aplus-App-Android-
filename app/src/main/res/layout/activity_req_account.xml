@@ -4,7 +4,122 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_home"
+    android:background="@drawable/background_2"
     tools:context=".activity.ReqAccountActivity">
 
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="1dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/app_username_hint"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/colorPrimaryDark">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="12dp"
+            android:hint="@string/app_email"
+            app:endIconMode="clear_text"
+            app:endIconTint="@color/colorPrimaryDark">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/spinnerRole"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="30dp"
+            app:ms_alignLabels="true"
+            app:ms_arrowColor="@color/Black"
+            app:ms_arrowSize="12dp"
+            app:ms_baseColor="@color/Blue"
+            app:ms_enableErrorLabel="false"
+            app:ms_enableFloatingLabel="true"
+            app:ms_errorColor="@color/Red"
+            app:ms_floatingLabelColor="@color/SeaGreen"
+            app:ms_floatingLabelText="Role"
+            app:ms_highlightColor="@color/DeepPink"
+            app:ms_hint="@string/app_select_role"
+            app:ms_hintColor="@color/SeaGreen"
+            app:ms_hintTextSize="12dp"
+            app:ms_multiline="false"
+            app:ms_thickness="2dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_marginStart="20dp"
+            android:textSize="30sp"
+            android:textColor="@color/colorAccentPatient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_req_account1" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_marginStart="50dp"
+            android:textSize="30sp"
+            android:textColor="@color/colorAccentPatient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_req_account2" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_marginStart="50dp"
+            android:textSize="30sp"
+            android:textColor="@color/colorAccentPatient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_req_account3" />
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/outlinedButton"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/app_request"
+        app:icon="@drawable/ic_send_black_24dp"
+        app:iconGravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 </androidx.constraintlayout.widget.ConstraintLayout>
