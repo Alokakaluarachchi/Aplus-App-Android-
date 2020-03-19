@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/space_transparent"
+    android:padding="5dp"
+    android:layout_gravity="center_vertical">
+
+
+    <LinearLayout
+        android:layout_width="318dp"
+        android:layout_height="279dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="100dp"
+        android:background="@color/DarkCyan"
+        android:orientation="vertical"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintCircleRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/btnClose"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+
+            android:gravity="center"
+            android:text="@string/app_popup_close_icon"
+            android:textColor="@color/White"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="327dp"
+            android:layout_height="151dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:contentDescription="@string/app_reset"
+                android:src="@drawable/hero_image" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/do_you_want_to_delete_this_inventory"
+                android:textColor="@color/White"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" />
+
+
+        <TableRow
+
+            android:id="@+id/tableRow40"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/badge_left_margin"
+            >
+
+            <TextView
+                android:text="                    "
+>            </TextView>
+
+            <Button
+                android:id="@+id/clientimain31"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:background="@drawable/shape_button"
+                android:text="@string/yes" />
+
+            <TextView
+                android:text="           ">
+                            </TextView>
+
+            <Button
+                android:id="@+id/clientimain32"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:background="@drawable/shape_button2"
+                android:text="@string/no" />
+        </TableRow>
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
