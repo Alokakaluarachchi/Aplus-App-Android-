@@ -17,7 +17,7 @@
     <string name="app_home_card_inventory">Inventory</string>
     <string name="app_home_card_orders">Orders</string>
     <string name="app_home_card_customer">Customers</string>
-    <string name="app_home_card_employee">Employees</string>
+    <string name="app_home_card_employee">Users</string>
 
     <string name="app_req_account1">Request</string>
     <string name="app_req_account2">an</string>
@@ -32,6 +32,7 @@
     <string name="app_contact">Contact</string>
     <string name="app_back_to_home">Back to\nHome</string>
     <string name="app_account_info">Account Info</string>
+    <string name="app_add_account">Add new account</string>
 
     <!-- common text -->
     <string name="app_popup_close_icon">X</string>
