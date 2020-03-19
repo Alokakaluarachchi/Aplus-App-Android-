@@ -204,4 +204,6 @@
     <color name="bluelight_popup">#49acd5</color>
     <color name="green_poup">#45bc62</color>
     <color name="orange_popup">#eaad43</color>
+
+    <color name="active_center_button">#F44336</color>
 </resources>
