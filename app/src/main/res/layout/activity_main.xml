@@ -96,6 +96,10 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+
+
+
+
         <LinearLayout
             android:id="@+id/layoutmain"
             android:layout_width="match_parent"
@@ -146,7 +150,7 @@
         </LinearLayout>
 
 
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
@@ -165,5 +169,8 @@
             android:textSize="12sp" />
     </LinearLayout>
 
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
