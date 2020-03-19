@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        this.setContentView(R.layout.add_new_customer);
+
         this.setContentView(R.layout.activity_main);
 
         btnLogin = findViewById(R.id.btnLogin);
@@ -52,5 +55,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, ReqAccountActivity.class));
             }
         });
+
     }
 }
