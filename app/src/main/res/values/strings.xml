@@ -41,6 +41,12 @@
     <string name="app_reset_password_instruction_1">Confirm your email address we\'ll send</string>
     <string name="app_reset_password_instruction_2">the instructions</string>
 
+    <string name="ComplBtn">Complete</string>
+    <string name="DeleBtn">Delete</string>
+    <string name="Ordr">Orders</string>
+    <string name="CheckB1">get</string>
+
+
     <string name="delete">delete</string>
     <string name="monthly_purchases">Monthly Purchases</string>
 
