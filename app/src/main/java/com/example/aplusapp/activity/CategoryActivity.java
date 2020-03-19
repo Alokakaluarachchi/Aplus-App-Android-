@@ -15,6 +15,7 @@ import com.example.aplusapp.R;
 public class CategoryActivity extends Fragment {
 
     ConstraintLayout btnUsers;
+    ConstraintLayout btnInventory;
 
     @Nullable
     @Override
@@ -23,11 +24,19 @@ public class CategoryActivity extends Fragment {
         View rootView = inflater.inflate(R.layout.activity_category, container, false);
 
         btnUsers = rootView.findViewById(R.id.btnUsers);
+        btnInventory = rootView.findViewById(R.id.btnInventory);
 
         btnUsers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new UserListActivity()).commit();
+            }
+        });
+
+        btnInventory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new InvetoryList()).commit();
             }
         });
 
