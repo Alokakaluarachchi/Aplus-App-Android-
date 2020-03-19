@@ -22,31 +22,35 @@
         android:inputType="textPersonName"
         android:text="Name"
         android:textColor="@color/White"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="140dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
         android:id="@+id/upemail"
         android:layout_width="305dp"
         android:layout_height="62dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textEmailAddress"
         android:text="Email"
         android:textColor="@color/White"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="35dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upidnumber" />
 
     <EditText
         android:id="@+id/upidnumber"
         android:layout_width="309dp"
         android:layout_height="57dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="ID Number"
         android:textColor="@color/White"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="217dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upname" />
 
     <EditText
         android:id="@+id/upphonenumbert"
@@ -56,32 +60,40 @@
         android:inputType="phone"
         android:text="Phone Number"
         android:textColor="@color/White"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="394dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upemail" />
 
     <Button
         android:id="@+id/cuupdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
         android:text="Update @ Reset"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="513dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upphonenumbert" />
 
     <Button
         android:id="@+id/cudelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:text="delete"
-        tools:layout_editor_absoluteX="238dp"
-        tools:layout_editor_absoluteY="511dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upphonenumbert" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="345dp"
         android:layout_height="48dp"
+        android:layout_marginTop="32dp"
         android:text="Customer profile Update @ Delete"
-        android:textSize="20sp"
         android:textColor="@color/Yellow"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="43dp" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+</androidx.constraintlayout.widget.ConstraintLayout>

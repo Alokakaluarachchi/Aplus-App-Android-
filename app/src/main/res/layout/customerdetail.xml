@@ -42,7 +42,6 @@
             android:textColor="@color/White">
 
             <TextView
-                android:layout_column=""
                 android:padding="3dip"
                 android:text="Name" />
 
@@ -59,7 +58,6 @@
         <TableRow>
 
             <TextView
-                android:layout_column=""
                 android:padding="3dip"
                 android:text="asd" />
 
@@ -76,7 +74,6 @@
         <TableRow>
 
             <TextView
-                android:layout_column=""
                 android:padding="3dip"
                 android:text="qw" />
 
@@ -93,7 +90,6 @@
         <TableRow>
 
             <TextView
-                android:layout_column=""
                 android:padding="3dip"
                 android:text="cv" />
 
@@ -110,7 +106,6 @@
         <TableRow>
 
             <TextView
-                android:layout_column=""
                 android:padding="3dip"
                 android:text="dfg" />
 
@@ -127,7 +122,6 @@
         <TableRow>
 
             <TextView
-                android:layout_column=""
                 android:padding="3dip"
                 android:text="dsvgf" />
 
@@ -144,7 +138,6 @@
         <TableRow>
 
             <TextView
-                android:layout_column=""
                 android:padding="3dip"
                 android:text="gh" />
 
@@ -161,7 +154,6 @@
         <TableRow>
 
             <TextView
-                android:layout_column=""
                 android:padding="3dip"
                 android:text="ffdhgrfh" />
 
@@ -178,7 +170,6 @@
         <TableRow>
 
             <TextView
-                android:layout_column=""
                 android:padding="3dip"
                 android:text="426" />
 
@@ -194,4 +185,4 @@
 
 
     </TableLayout>
-
+</androidx.constraintlayout.widget.ConstraintLayout>
