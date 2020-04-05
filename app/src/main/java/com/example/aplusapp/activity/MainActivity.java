@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.aplusapp.R;
+import com.example.aplusapp.db.repos.UserRepository;
+import com.example.aplusapp.model.Users;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,9 +37,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                UserRepository repo = new UserRepository(getApplication());
+
+                Users users = new Users(1, "shalitha", 1, "shalitha", "asasas", 1, true);
+                repo.insertUser(users);
+
                 startActivity(new Intent(MainActivity.this, MainActivity.class));
 
                 startActivity(new Intent(MainActivity.this, HomeActivity.class));
+
 
 
             }
