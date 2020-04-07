@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 Users users = new Users(1, "shalitha", 1, "shalitha", "asasas", 1, true);
                 repo.insertUser(users);
 
-                startActivity(new Intent(MainActivity.this, NoInternetActivity.class));
+                startActivity(new Intent(MainActivity.this, HomeActivity.class));
 
 
 
