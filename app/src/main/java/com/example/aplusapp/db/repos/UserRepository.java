@@ -33,4 +33,10 @@ public class UserRepository {
             userDao.insertUser(user);
         });
     }
+
+    public void removeUser(int id){
+        GeneralRoomDatabase_Impl.databaseWriteExecutor.execute(() -> {
+            userDao.removeByID(id);
+        });
+    }
 }

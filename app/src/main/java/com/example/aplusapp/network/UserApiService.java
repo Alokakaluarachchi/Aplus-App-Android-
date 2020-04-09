@@ -10,10 +10,10 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
-public interface ApiService {
+public interface UserApiService {
 
     @POST("users/authenticate")
-    Call<List<AuthData>> doLogin(@Body AuthBody authBody);
+    Call<AuthData> doLogin(@Body AuthBody authBody);
 
     @GET("users/forTest")
     Call<Boolean> ApiTest();

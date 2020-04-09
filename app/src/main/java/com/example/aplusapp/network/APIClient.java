@@ -1,6 +1,7 @@
 package com.example.aplusapp.network;
 
 import java.security.cert.CertificateException;
+import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -14,9 +15,13 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIClient {
-    public static final String BASE_URL = "https://10.0.2.2:44317/api/";
+    public static final String BASE_URL = "https://10.0.2.2:44317/api/"; //local web api
     private static Retrofit retrofit = null;
-    private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+
+    private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder()
+                                                            .readTimeout(60, TimeUnit.SECONDS)
+                                                            .connectTimeout(60, TimeUnit.SECONDS);
+
     public static Retrofit getClient() {
         if (retrofit == null) {
             //Defining the Retrofit using Builder
