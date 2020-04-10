@@ -1,10 +1,13 @@
 package com.example.aplusapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +21,8 @@ import com.example.aplusapp.model.Users;
 import com.example.aplusapp.model.responce.AuthData;
 import com.example.aplusapp.network.APIClient;
 import com.example.aplusapp.network.UserApiService;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -73,8 +78,8 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.LENGTH_LONG).show();
                             return;
                         }
-                        //save to database
-                        SaveToDatabase(response.body());
+                        //saving data to the database. separate from main thread !.
+                        new DbProcess(response.body()).execute();
 
                         startActivity(new Intent(MainActivity.this, HomeActivity.class));
                     }
@@ -107,13 +112,34 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void SaveToDatabase(AuthData data){
-        UserRepository repo = new UserRepository(getApplication());
+    public class DbProcess extends AsyncTask<Void,Void,Void>{
 
-        repo.removeUser(data.getUserID());
+        private AuthData _data;
 
-        Users users = new Users(data.getUserID(), data.getUserName(), data.getRoleID(), data.getEmail(), txtPassword.getText().toString(), data.getOrganizationID(), true );
-        repo.insertUser(users);
+        public DbProcess(AuthData data){
+            super();
+            _data = data;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            Log.i("dbAccess", "hit the async task");
+            UserRepository repo = new UserRepository(getApplication());
+
+            Users user = repo.findByID(_data.getUserID());
+
+            Users authUser = new Users(_data.getUserID(), _data.getUserName(), _data.getRoleID(), _data.getEmail(), txtPassword.getText().toString(), _data.getOrganizationID(), true );
+
+            if(user == null){
+                Log.i("dbAccess", "hit as  the new user");
+                repo.insertUser(authUser);
+            }else{
+                Log.i("dbAccess", "hit as  the update user");
+                repo.updateUser(authUser);
+            }
+
+            return null;
+        }
     }
 
 }
