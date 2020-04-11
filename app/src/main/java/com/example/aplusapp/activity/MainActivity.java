@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private UserApiService apiService;
     private AuthData authenticateData;
 
+    public CircularProgressBarDialog circularProgressBarDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         retrofit = APIClient.getClient(); //initialize Retrofit Client
         apiService = retrofit.create(UserApiService.class); //Register the Api Service
 
+        circularProgressBarDialog = new CircularProgressBarDialog();
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
                 //setup the api call
                 Call<AuthData> call = apiService.doLogin(body);
 
+                //show progress bar
+                circularProgressBarDialog.show(getSupportFragmentManager(), null);
+
                 //executing
                 call.enqueue(new Callback<AuthData>() {
                     @Override
@@ -76,12 +83,15 @@ public class MainActivity extends AppCompatActivity {
                         if(!response.body().getAuthenticated() || response.body().getUserID() == null){
                             Toast.makeText(getApplication(), "Username or Password is incorrect",
                                     Toast.LENGTH_LONG).show();
+
+                            //hide progress bar
+                            circularProgressBarDialog.dismiss();
+
                             return;
                         }
                         //saving data to the database. separate from main thread !.
                         new DbProcess(response.body()).execute();
 
-                        startActivity(new Intent(MainActivity.this, HomeActivity.class));
                     }
 
                     @Override
@@ -106,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
         btnReqAcount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ReqAccountActivity.class));
+                startActivity(new Intent(MainActivity.this, ErrorActivity.class));
             }
         });
 
@@ -137,6 +147,11 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("dbAccess", "hit as  the update user");
                 repo.updateUser(authUser);
             }
+
+            //hide progress bar
+            circularProgressBarDialog.dismiss();
+
+            startActivity(new Intent(MainActivity.this, HomeActivity.class));
 
             return null;
         }
