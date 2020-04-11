@@ -24,17 +24,11 @@ public interface UserDao {
     @Delete
     void deleteUser(Users user);
 
-    @Query("select * from user order by UserName asc")
-    List<Users> getUsers();
-
     @Query("SELECT * FROM user ORDER BY UserName asc")
     LiveData<List<Users>> fetchAll();
 
     @Query("select * from user where ID = :ID")
     Users findByID(int ID);
-
-    @Query("select * from user where ID = :ID")
-    LiveData<List<Users>> fetchAllByID(int ID);
 
     @Query("delete from user")
     void removeAll();
