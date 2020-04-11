@@ -49,6 +49,9 @@ dependencies {
     implementation 'com.intellij:annotations:+@jar'
     implementation 'com.mikhaellopez:circularprogressbar:3.0.3'
 
+    //error handle
+    implementation 'com.github.rerlanggas:ExceptionHandler:1.0.0'
+
     //animation
     implementation 'com.airbnb.android:lottie:3.4.0'
 

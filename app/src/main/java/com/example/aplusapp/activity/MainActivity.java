@@ -20,7 +20,9 @@ import com.example.aplusapp.model.RequestBody.AuthBody;
 import com.example.aplusapp.model.Users;
 import com.example.aplusapp.model.responce.AuthData;
 import com.example.aplusapp.network.APIClient;
+import com.example.aplusapp.network.NetworkAccess;
 import com.example.aplusapp.network.UserApiService;
+import com.rerlanggas.lib.ExceptionHandler;
 
 import java.util.List;
 
@@ -47,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //centralize error handler
+        ExceptionHandler.init(this, ErrorActivity.class);
+
         this.setContentView(R.layout.add_new_customer);
 
         this.setContentView(R.layout.activity_main);
@@ -66,6 +71,13 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(!NetworkAccess.isInternetAvailable(getApplicationContext())){
+                    Toast.makeText(getApplication(), "No internet connection !",
+                            Toast.LENGTH_SHORT).show();
+
+                    return;
+                }
 
                 AuthBody body = new AuthBody(txtUsername.getText().toString(), txtPassword.getText().toString());
 
@@ -96,7 +108,8 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<AuthData> call, Throwable t) {
-
+                        Toast.makeText(getApplication(), t.getLocalizedMessage(),
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -116,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         btnReqAcount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ErrorActivity.class));
+                startActivity(new Intent(MainActivity.this, ReqAccountActivity.class));
             }
         });
 
@@ -148,13 +161,14 @@ public class MainActivity extends AppCompatActivity {
                 repo.updateUser(authUser);
             }
 
+            startActivity(new Intent(MainActivity.this, HomeActivity.class));
+
             //hide progress bar
             circularProgressBarDialog.dismiss();
 
-            startActivity(new Intent(MainActivity.this, HomeActivity.class));
-
             return null;
         }
+
     }
 
 }

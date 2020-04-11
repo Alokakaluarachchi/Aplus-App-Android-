@@ -1,12 +1,18 @@
 package com.example.aplusapp.network;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
 import java.net.InetAddress;
 
 public class NetworkAccess {
-    public boolean isInternetAvailable() {
+    public static boolean isInternetAvailable(Context context) {
         try {
-            InetAddress ipAddr = InetAddress.getByName("google.com");
-            return !ipAddr.equals("");
+            ConnectivityManager connectivityManager
+                    = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+            return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 
         } catch (Exception e) {
             return false;
