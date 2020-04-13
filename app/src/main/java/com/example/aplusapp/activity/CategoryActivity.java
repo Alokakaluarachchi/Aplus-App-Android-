@@ -16,6 +16,8 @@ public class CategoryActivity extends Fragment {
 
     ConstraintLayout btnUsers;
     ConstraintLayout btnInventory;
+    ConstraintLayout btnOrder;
+    ConstraintLayout btnSales;
 
     @Nullable
     @Override
@@ -25,6 +27,8 @@ public class CategoryActivity extends Fragment {
 
         btnUsers = rootView.findViewById(R.id.btnUsers);
         btnInventory = rootView.findViewById(R.id.btnInventory);
+        btnOrder = rootView.findViewById(R.id.btnOrder);
+        btnSales = rootView.findViewById(R.id.btnSales);
 
         btnUsers.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +43,18 @@ public class CategoryActivity extends Fragment {
                 getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new InvetoryList()).commit();
             }
         });
-
+        btnOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new OrderActivity()).commit();
+            }
+        });
+        btnSales.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new CashierActivity()).commit();
+            }
+        });
         return rootView;
     }
 }

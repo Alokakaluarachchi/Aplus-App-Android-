@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_color"
-    tools:context=".activity.OrderActivity">
+
+    tools:context=".activity.CashierActivity">
 
     <Button
         android:id="@+id/button"
@@ -36,11 +36,12 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="347dp"
-        android:text="Cashier"
-        android:textSize="36sp"
         android:shadowColor="@color/colorPrimary"
-        android:textColorHighlight="@color/AliceBlue"
+        android:text="Sales"
+        android:textStyle="bold"
         android:textColor="@color/Black"
+        android:textColorHighlight="@color/AliceBlue"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +54,7 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="1dp"
-        android:background="#EBDEF0"
+        android:background="#D394EC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

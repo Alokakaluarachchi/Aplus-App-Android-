@@ -42,7 +42,6 @@
         <TextView
             android:id="@+id/TextView"
             android:layout_marginRight="@dimen/badge_left_margin"
-
             android:text="ID"
             android:textStyle="bold"
             android:layout_width="40dp"
