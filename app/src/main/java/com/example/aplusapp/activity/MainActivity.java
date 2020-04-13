@@ -84,10 +84,12 @@ public class MainActivity extends AppCompatActivity {
             String username = pref.getString(SharedConst.APP_USERNAME, null);
             String password = pref.getString(SharedConst.APP_PASSWORD, null);
 
+
             if(username != null && password != null){
                 try {
                     txtUsername.setText(username);
                     txtPassword.setText(CryptoHelper.decrypt(password));
+                    checkBox.setChecked(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -133,10 +135,13 @@ public class MainActivity extends AppCompatActivity {
                         //set to cache
                         try {
                             if(checkBox.isChecked()){
+                                editor.putBoolean(SharedConst.APP_CREDENTIAL_SAVED, true);
                                 editor.putString(SharedConst.APP_USERNAME, txtUsername.getText().toString());
                                 editor.putString(SharedConst.APP_PASSWORD, CryptoHelper.encrypt(txtPassword.getText().toString()));
-                                editor.apply();
+                            }else{
+                                editor.putBoolean(SharedConst.APP_CREDENTIAL_SAVED, false);
                             }
+                            editor.apply();
 
                         } catch (Exception e) {
                             e.printStackTrace();
