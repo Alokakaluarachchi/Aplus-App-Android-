@@ -1,19 +1,21 @@
 package com.example.aplusapp.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.anychart.editor.Editor;
 import com.example.aplusapp.R;
 import com.example.aplusapp.db.repos.UserRepository;
 import com.example.aplusapp.model.RequestBody.AuthBody;
@@ -22,9 +24,9 @@ import com.example.aplusapp.model.responce.AuthData;
 import com.example.aplusapp.network.APIClient;
 import com.example.aplusapp.network.NetworkAccess;
 import com.example.aplusapp.network.UserApiService;
+import com.example.aplusapp.service.CryptoHelper;
+import com.example.aplusapp.utils.SharedConst;
 import com.rerlanggas.lib.ExceptionHandler;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,11 +41,16 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText txtUsername, txtPassword;
 
+    private CheckBox checkBox;
+
     private Retrofit retrofit;
     private UserApiService apiService;
     private AuthData authenticateData;
 
     public CircularProgressBarDialog circularProgressBarDialog;
+
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,11 +69,32 @@ public class MainActivity extends AppCompatActivity {
 
         txtUsername = findViewById(R.id.txtUsername);
         txtPassword = findViewById(R.id.txtPassword);
+        checkBox = findViewById(R.id.checkbox);
 
         retrofit = APIClient.getClient(); //initialize Retrofit Client
         apiService = retrofit.create(UserApiService.class); //Register the Api Service
 
         circularProgressBarDialog = new CircularProgressBarDialog();
+
+        pref = getApplicationContext().getSharedPreferences(SharedConst.APPLICATION_SHARED_PREF, 0); // 0 - for private mode
+        editor = pref.edit();
+
+        boolean credentialChecked = pref.getBoolean(SharedConst.APP_CREDENTIAL_SAVED, false);
+        if(credentialChecked){
+            String username = pref.getString(SharedConst.APP_USERNAME, null);
+            String password = pref.getString(SharedConst.APP_PASSWORD, null);
+
+
+            if(username != null && password != null){
+                try {
+                    txtUsername.setText(username);
+                    txtPassword.setText(CryptoHelper.decrypt(password));
+                    checkBox.setChecked(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,12 +132,30 @@ public class MainActivity extends AppCompatActivity {
                         //saving data to the database. separate from main thread !.
                         new DbProcess(response.body()).execute();
 
+                        //set to cache
+                        try {
+                            if(checkBox.isChecked()){
+                                editor.putBoolean(SharedConst.APP_CREDENTIAL_SAVED, true);
+                                editor.putString(SharedConst.APP_USERNAME, txtUsername.getText().toString());
+                                editor.putString(SharedConst.APP_PASSWORD, CryptoHelper.encrypt(txtPassword.getText().toString()));
+                            }else{
+                                editor.putBoolean(SharedConst.APP_CREDENTIAL_SAVED, false);
+                            }
+                            editor.apply();
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
                     }
 
                     @Override
                     public void onFailure(Call<AuthData> call, Throwable t) {
                         Toast.makeText(getApplication(), t.getLocalizedMessage(),
                                 Toast.LENGTH_SHORT).show();
+
+                        //hide progress bar
+                        circularProgressBarDialog.dismiss();
                     }
                 });
 
@@ -160,6 +206,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("dbAccess", "hit as  the update user");
                 repo.updateUser(authUser);
             }
+
 
             startActivity(new Intent(MainActivity.this, HomeActivity.class));
 
