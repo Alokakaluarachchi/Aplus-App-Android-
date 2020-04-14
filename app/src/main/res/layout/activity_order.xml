@@ -62,7 +62,8 @@
     </com.google.android.material.tabs.TabLayout>
 
     <TableLayout
-        android:id="@+id/tableLayout2"
+        android:id="@+id/OdrTablelayot"
+        android:background="@color/white_with_alpha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
@@ -247,7 +248,7 @@
         android:typeface="serif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/OdrTablelayot" />
 
     <Button
         android:id="@+id/btnOrderDelete"
@@ -265,4 +266,3 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
