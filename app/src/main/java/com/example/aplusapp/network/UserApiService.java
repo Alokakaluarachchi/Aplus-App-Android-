@@ -1,6 +1,7 @@
 package com.example.aplusapp.network;
 
 import com.example.aplusapp.model.RequestBody.AuthBody;
+import com.example.aplusapp.model.RequestBody.ForgotPasswordReq;
 import com.example.aplusapp.model.responce.AuthData;
 
 import java.util.List;
@@ -14,6 +15,9 @@ public interface UserApiService {
 
     @POST("users/authenticate")
     Call<AuthData> doLogin(@Body AuthBody authBody);
+
+    @POST("users/resetPasswordMobile")
+    Call<Boolean> resetPasswordRequest(@Body ForgotPasswordReq data);
 
     @GET("users/forTest")
     Call<Boolean> ApiTest();
