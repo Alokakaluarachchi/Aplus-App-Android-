@@ -19,6 +19,7 @@ import com.anychart.editor.Editor;
 import com.example.aplusapp.R;
 import com.example.aplusapp.db.repos.UserRepository;
 import com.example.aplusapp.model.RequestBody.AuthBody;
+import com.example.aplusapp.model.RequestBody.ForgotPasswordReq;
 import com.example.aplusapp.model.Users;
 import com.example.aplusapp.model.responce.AuthData;
 import com.example.aplusapp.network.APIClient;
@@ -47,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private UserApiService apiService;
     private AuthData authenticateData;
 
-    public CircularProgressBarDialog circularProgressBarDialog;
+    private CircularProgressBarDialog circularProgressBarDialog;
 
     private SharedPreferences pref;
     private SharedPreferences.Editor editor;
