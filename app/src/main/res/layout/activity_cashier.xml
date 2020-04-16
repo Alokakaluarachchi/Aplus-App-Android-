@@ -4,30 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_color"
-    tools:context=".activity.OrderActivity">
+
+    tools:context=".activity.CashierActivity">
 
     <Button
         android:id="@+id/button"
+        android:textColor="@color/DarkRed"
+        android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="201dp"
         android:text="PLACE"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/Widget.AppCompat.Button.Colored"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button2"
+        android:textColor="@color/DarkRed"
+        android:typeface="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginEnd="126dp"
+        android:layout_marginBottom="201dp"
         android:text="CANCEL"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        style="@style/Widget.AppCompat.Button.Colored"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button" />
 
     <TextView
         android:id="@+id/Ordr"
@@ -36,11 +40,12 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="347dp"
-        android:text="Cashier"
-        android:textSize="36sp"
         android:shadowColor="@color/colorPrimary"
-        android:textColorHighlight="@color/AliceBlue"
+        android:text="Sales"
+        android:textStyle="bold"
         android:textColor="@color/Black"
+        android:textColorHighlight="@color/AliceBlue"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +58,7 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="1dp"
-        android:background="#EBDEF0"
+        android:background="#D394EC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,6 +85,182 @@
             android:layout_height="wrap_content"
             android:text="ORDER_03" />
     </com.google.android.material.tabs.TabLayout>
+
+    <TableLayout
+        android:id="@+id/SlsTableLayout"
+        android:background="@color/white_with_alpha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout">
+
+        <!-- first row.-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="ID"
+                android:textSize="10pt"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="2dp"
+                android:text="Items"
+                android:textSize="10pt"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:text="Quantity"
+                android:textSize="10pt"
+                android:textStyle="bold"></TextView>
+
+        </TableRow>
+        <!-- End of first raw.-->
+
+        <!-- second row.-->
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/SalesId1"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="I001"
+                android:textSize="8pt"></TextView>
+
+            <TextView
+                android:id="@+id/SiName1"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="8dp"
+                android:text="Bolts"
+                android:textSize="8pt"></TextView>
+
+            <TextView
+                android:id="@+id/sQty1"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="40dp"
+                android:text="50"
+                android:textSize="8pt"
+                tools:ignore="InvalidId"></TextView>
+
+        </TableRow>
+
+        <!-- End of second raw.-->
+
+        <!-- Third raw.-->
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/SalesId2"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="I002"
+                android:textSize="8pt"></TextView>
+
+            <TextView
+                android:id="@+id/SiName2"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="8dp"
+                android:text="Nuts"
+                android:textSize="8pt"></TextView>
+
+            <TextView
+                android:id="@+id/sQty2"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="40dp"
+                android:text="20"
+                android:textSize="8pt"
+                tools:ignore="InvalidId"></TextView>
+        </TableRow>
+        <!-- End of Third raw.-->
+
+        <!-- Fourth raw.-->
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/SalesId3"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="I003"
+                android:textSize="8pt"></TextView>
+
+            <TextView
+                android:id="@+id/SiName3"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="8dp"
+                android:text="Screws"
+                android:textSize="8pt"></TextView>
+
+            <TextView
+                android:id="@+id/sQty3"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="40dp"
+                android:text="15"
+                android:textSize="8pt"
+                tools:ignore="InvalidId"></TextView>
+        </TableRow>
+
+        <!--End of Fourth row -->
+
+        <!-- Fifth row -->
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/SalesId4"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="I004"
+                android:textSize="8pt"></TextView>
+
+            <TextView
+                android:id="@+id/SiName4"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="8dp"
+                android:text="Hinches"
+                android:textSize="8pt"></TextView>
+
+            <TextView
+                android:id="@+id/sQty4"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="40dp"
+                android:text="40"
+                android:textSize="8pt"
+                tools:ignore="InvalidId"></TextView>
+        </TableRow>
+
+        <!-- End of Fifth row -->
+    </TableLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
