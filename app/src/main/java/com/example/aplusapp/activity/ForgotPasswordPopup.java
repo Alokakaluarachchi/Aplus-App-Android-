@@ -25,6 +25,7 @@ import com.example.aplusapp.network.APIClient;
 import com.example.aplusapp.network.NetworkAccess;
 import com.example.aplusapp.network.UserApiService;
 import com.example.aplusapp.service.CommonServices;
+import com.example.aplusapp.utils.SharedConst;
 
 import java.util.Objects;
 
@@ -94,7 +95,16 @@ public class ForgotPasswordPopup extends DialogFragment {
                     @Override
                     public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                         if(response.body()){
+
+                            //set the email address as a argument to pass to the next screen
+                            Bundle args = new Bundle();
+                            args.putString(SharedConst.SETTINGS_EMAIL, txtEmail.getText().toString());
+
+                            //create password reset screen popup object
                             ForgotPasswordResetPopup forgotPasswordPopup = new ForgotPasswordResetPopup();
+                            //set the arguments to pass
+                            forgotPasswordPopup.setArguments(args);
+                            //show the passowrd reset screen
                             forgotPasswordPopup.show(Objects.requireNonNull(getActivity()).getSupportFragmentManager(),null);
 
                             dismiss();

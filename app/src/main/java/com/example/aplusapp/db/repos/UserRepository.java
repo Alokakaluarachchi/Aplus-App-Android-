@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.aplusapp.db.GeneralRoomDatabase_Impl;
+import com.example.aplusapp.db.GeneralRoomDatabase;
 import com.example.aplusapp.db.dao.UserDao;
 import com.example.aplusapp.model.Users;
 
@@ -16,7 +16,7 @@ public class UserRepository {
     private LiveData<List<Users>> allUsers;
 
     public  UserRepository(Application application){
-        GeneralRoomDatabase_Impl db = (GeneralRoomDatabase_Impl) GeneralRoomDatabase_Impl.getDatabase(application);
+        GeneralRoomDatabase db = GeneralRoomDatabase.getDatabase(application);
         userDao = db.userDao();
         allUsers = userDao.fetchAll();
     }
@@ -35,19 +35,19 @@ public class UserRepository {
     // You must call this on a non-UI thread or your app will throw an exception. Room ensures
     // that you're not doing any long running operations on the main thread, blocking the UI.
     public void insertUser(Users user) {
-        GeneralRoomDatabase_Impl.databaseWriteExecutor.execute(() -> {
+        GeneralRoomDatabase.databaseWriteExecutor.execute(() -> {
             userDao.insertUser(user);
         });
     }
 
     public void removeUser(int id){
-        GeneralRoomDatabase_Impl.databaseWriteExecutor.execute(() -> {
+        GeneralRoomDatabase.databaseWriteExecutor.execute(() -> {
             userDao.removeByID(id);
         });
     }
 
     public void updateUser(Users user){
-        GeneralRoomDatabase_Impl.databaseWriteExecutor.execute(() -> {
+        GeneralRoomDatabase.databaseWriteExecutor.execute(() -> {
             userDao.updateUser(user);
         });
     }
