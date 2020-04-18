@@ -15,7 +15,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Database(entities = {Users.class, Inventory.class}, version = 1, exportSchema = false)
-abstract class GeneralRoomDatabase extends RoomDatabase {
+public abstract class GeneralRoomDatabase extends RoomDatabase {
 
     public abstract UserDao userDao();
     public abstract InventoryDao inventoryDao();
