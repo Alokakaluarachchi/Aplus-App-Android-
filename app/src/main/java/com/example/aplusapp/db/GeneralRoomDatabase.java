@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Database(entities = {Users.class}, version = 1, exportSchema = false)
-abstract class GeneralRoomDatabase extends RoomDatabase {
+public abstract class GeneralRoomDatabase extends RoomDatabase {
 
     public abstract UserDao userDao();
 
@@ -32,5 +32,4 @@ abstract class GeneralRoomDatabase extends RoomDatabase {
         }
         return INSTANCE;
     }
-
 }
