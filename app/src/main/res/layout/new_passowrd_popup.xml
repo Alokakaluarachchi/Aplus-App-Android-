@@ -50,7 +50,6 @@ inbox for email from A-plus and enter the password reset code we have sent to :"
             android:layout_marginTop="6dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="shalithax@gmail.com"
             android:textColor="@color/orange_popup"/>
         <TextView
             android:layout_width="wrap_content"
@@ -74,6 +73,7 @@ inbox for email from A-plus and enter the password reset code we have sent to :"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtResetCode"
+                android:inputType="number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/White"/>
@@ -85,7 +85,8 @@ inbox for email from A-plus and enter the password reset code we have sent to :"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            app:endIconMode="clear_text"
+            app:endIconMode="password_toggle"
+            app:endIconCheckable="true"
             app:endIconTint="@color/White"
             android:hint="enter new Password"
             app:boxStrokeColor="@color/White"
@@ -96,6 +97,7 @@ inbox for email from A-plus and enter the password reset code we have sent to :"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtPassword"
+                android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/White"/>
@@ -106,7 +108,8 @@ inbox for email from A-plus and enter the password reset code we have sent to :"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:endIconMode="clear_text"
+            app:endIconMode="password_toggle"
+            app:endIconCheckable="true"
             app:endIconTint="@color/White"
             android:hint="Re-enter password"
             app:boxStrokeColor="@color/White"
@@ -117,6 +120,7 @@ inbox for email from A-plus and enter the password reset code we have sent to :"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtResetPassword"
+                android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/White"/>
