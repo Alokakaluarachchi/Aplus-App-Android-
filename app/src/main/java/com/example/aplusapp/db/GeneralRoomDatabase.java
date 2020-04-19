@@ -1,8 +1,11 @@
 package com.example.aplusapp.db;
+
 import android.content.Context;
+
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+
 import com.example.aplusapp.db.dao.InventoryDao;
 import com.example.aplusapp.db.dao.UserDao;
 import com.example.aplusapp.model.Inventory;
@@ -32,5 +35,4 @@ public abstract class GeneralRoomDatabase extends RoomDatabase {
         }
         return INSTANCE;
     }
-
 }
