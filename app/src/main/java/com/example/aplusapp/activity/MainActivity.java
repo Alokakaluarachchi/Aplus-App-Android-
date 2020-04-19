@@ -102,14 +102,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(!NetworkAccess.isInternetAvailable(getApplicationContext())){
-                    Toast.makeText(getApplication(), "No internet connection !",
-                            Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, NoInternetActivity.class));
 
                     return;
                 }
 
-                if(txtUsername.getText().length() == 0 || txtPassword.getText().length() == 0){
+                if(txtUsername.getText().length() == 0){
+                    txtUsername.setError("Enter your email here");
                     return;
+                }
+
+                if(txtPassword.getText().length() == 0){
+                    txtPassword.setError("Password cannot be empty !");
                 }
 
                 AuthBody body = new AuthBody(txtUsername.getText().toString(), txtPassword.getText().toString());
