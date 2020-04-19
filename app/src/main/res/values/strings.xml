@@ -54,7 +54,7 @@
 
 
     <!--add Inventory-->
-    <string name="add_inventory">Add Inventory</string>
+    <string name="add_inventory">Add</string>
     <string name="sales_price">Sales Price</string>
     <string name="category">Category</string>
     <string name="quantity">Quantity</string>
