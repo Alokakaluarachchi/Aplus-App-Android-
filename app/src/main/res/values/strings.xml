@@ -54,7 +54,7 @@
 
 
     <!--add Inventory-->
-    <string name="add_inventory">Add Inventory</string>
+    <string name="add_inventory">Add</string>
     <string name="sales_price">Sales Price</string>
     <string name="category">Category</string>
     <string name="quantity">Quantity</string>
@@ -98,11 +98,11 @@
     <string name="app_dummy_user_organization">ABC branch</string>
     <string name="app_dummy_user_email">shalithax@gmail.com</string>
     <string name="app_dummy_user_contact">077 194 005 5</string>
-    <string name="app_password_reset">Password Reset</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="btnDelete">DELETE</string>
     <string name="btnComplete">Complete</string>
+    <string name="app_password_reset">RESET</string>
 
 </resources>

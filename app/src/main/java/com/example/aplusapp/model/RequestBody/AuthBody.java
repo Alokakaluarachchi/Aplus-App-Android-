@@ -1,7 +1,6 @@
 package com.example.aplusapp.model.RequestBody;
 
 import com.google.gson.annotations.SerializedName;
-
 public class AuthBody {
     @SerializedName("Email")
     public String email;

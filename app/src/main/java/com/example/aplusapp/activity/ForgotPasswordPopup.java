@@ -95,7 +95,7 @@ public class ForgotPasswordPopup extends DialogFragment {
                     @Override
                     public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                         if(response.body()){
-
+                            circularProgressBarDialog.dismiss();
                             //set the email address as a argument to pass to the next screen
                             Bundle args = new Bundle();
                             args.putString(SharedConst.SETTINGS_EMAIL, txtEmail.getText().toString());
@@ -109,6 +109,7 @@ public class ForgotPasswordPopup extends DialogFragment {
 
                             dismiss();
                         }else{
+                            circularProgressBarDialog.dismiss();
                             Toast.makeText(getActivity(), "The email address you entered is not linked to a A-Plus account",
                                     Toast.LENGTH_SHORT).show();
                         }

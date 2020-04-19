@@ -108,6 +108,10 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
+                if(txtUsername.getText().length() == 0 || txtPassword.getText().length() == 0){
+                    return;
+                }
+
                 AuthBody body = new AuthBody(txtUsername.getText().toString(), txtPassword.getText().toString());
 
                 //setup the api call
@@ -145,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
                             editor.apply();
 
                         } catch (Exception e) {
+                            circularProgressBarDialog.dismiss();
                             e.printStackTrace();
                         }
 
