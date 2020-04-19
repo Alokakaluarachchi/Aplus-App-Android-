@@ -73,7 +73,6 @@
             app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -92,9 +91,7 @@
             app:endIconTint="@color/colorAccent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtPassword"
                 android:layout_width="match_parent"
-                android:inputType="textPassword"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -116,7 +113,6 @@
                 android:text="@string/app_login_checkbox_value"
                 android:id="@+id/checkbox"
                 android:textColor="@color/DimGray"
-                android:buttonTint="@color/Black"
                 android:layout_marginTop="0dp"
                 android:layout_marginStart="30dp" />
 

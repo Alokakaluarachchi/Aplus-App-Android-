@@ -98,7 +98,6 @@
     <string name="app_dummy_user_organization">ABC branch</string>
     <string name="app_dummy_user_email">shalithax@gmail.com</string>
     <string name="app_dummy_user_contact">077 194 005 5</string>
-    <string name="app_password_reset">Password Reset</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
