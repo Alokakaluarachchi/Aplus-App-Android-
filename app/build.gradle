@@ -50,6 +50,8 @@ dependencies {
     implementation 'com.intellij:annotations:+@jar'
     implementation 'com.mikhaellopez:circularprogressbar:3.0.3'
 
+    implementation 'com.github.GrenderG:Toasty:1.4.2'
+
     //error handle
     implementation 'com.github.rerlanggas:ExceptionHandler:1.0.0'
 

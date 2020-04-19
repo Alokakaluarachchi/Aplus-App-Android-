@@ -11,17 +11,39 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.aplusapp.R;
+import com.example.aplusapp.model.RequestBody.ForgotPasswordReq;
+import com.example.aplusapp.network.APIClient;
+import com.example.aplusapp.network.NetworkAccess;
+import com.example.aplusapp.network.UserApiService;
+import com.example.aplusapp.service.CommonServices;
+import com.example.aplusapp.utils.SharedConst;
+
+import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class ForgotPasswordPopup extends DialogFragment {
 
     private TextView btnClose;
+    private EditText txtEmail;
+    private Button btnReset;
+
+    private Retrofit retrofit;
+    private UserApiService apiService;
+
+    private CircularProgressBarDialog circularProgressBarDialog;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -30,11 +52,79 @@ public class ForgotPasswordPopup extends DialogFragment {
         //code
         //dismiss();
         btnClose = (TextView) view.findViewById(R.id.btnClose);
+        btnReset = view.findViewById(R.id.btnReset);
+        txtEmail = view.findViewById(R.id.txtEmail);
+
+        retrofit = APIClient.getClient(); //initialize Retrofit Client
+        apiService = retrofit.create(UserApiService.class); //Register the Api Service
+
+        circularProgressBarDialog = new CircularProgressBarDialog();
 
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dismiss();
+            }
+        });
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!NetworkAccess.isInternetAvailable(getActivity())){
+                    Toast.makeText(getActivity(), "No internet connection !",
+                            Toast.LENGTH_SHORT).show();
+
+                    return;
+                }
+
+                if(txtEmail.getText().length() == 0 || !(CommonServices.isValidEmail(txtEmail.getText().toString()))){
+                    Toast.makeText(getActivity(), "Please Enter valid email address",
+                            Toast.LENGTH_SHORT).show();
+
+                    return;
+                }
+
+                ForgotPasswordReq forgotPasswordReq = new ForgotPasswordReq(txtEmail.getText().toString());
+
+                Call<Boolean> call = apiService.resetPasswordRequest(forgotPasswordReq);
+
+                //show progress bar
+                circularProgressBarDialog.show(Objects.requireNonNull(getActivity()).getSupportFragmentManager(), null);
+
+                call.enqueue(new Callback<Boolean>() {
+                    @Override
+                    public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                        if(response.body()){
+                            circularProgressBarDialog.dismiss();
+                            //set the email address as a argument to pass to the next screen
+                            Bundle args = new Bundle();
+                            args.putString(SharedConst.SETTINGS_EMAIL, txtEmail.getText().toString());
+
+                            //create password reset screen popup object
+                            ForgotPasswordResetPopup forgotPasswordPopup = new ForgotPasswordResetPopup();
+                            //set the arguments to pass
+                            forgotPasswordPopup.setArguments(args);
+                            //show the passowrd reset screen
+                            forgotPasswordPopup.show(Objects.requireNonNull(getActivity()).getSupportFragmentManager(),null);
+
+                            dismiss();
+                        }else{
+                            circularProgressBarDialog.dismiss();
+                            Toast.makeText(getActivity(), "The email address you entered is not linked to a A-Plus account",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Boolean> call, Throwable t) {
+                        Toast.makeText(getActivity(), t.getLocalizedMessage(),
+                                Toast.LENGTH_SHORT).show();
+
+                        //hide progress bar
+                        circularProgressBarDialog.dismiss();
+                    }
+                });
+
             }
         });
 
