@@ -8,7 +8,7 @@
     tools:context=".activity.CashierActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnPlaceOrder"
         android:textColor="@color/DarkRed"
         android:typeface="serif"
         android:layout_width="wrap_content"
@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnCancelOrder"
         android:textColor="@color/DarkRed"
         android:typeface="serif"
         android:layout_width="wrap_content"
@@ -30,8 +30,7 @@
         android:layout_marginBottom="201dp"
         android:text="CANCEL"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/Ordr"
