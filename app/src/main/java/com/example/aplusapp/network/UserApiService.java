@@ -3,6 +3,7 @@ package com.example.aplusapp.network;
 import com.example.aplusapp.model.RequestBody.AuthBody;
 import com.example.aplusapp.model.RequestBody.ForgotPasswordReq;
 import com.example.aplusapp.model.responce.AuthData;
+import com.example.aplusapp.model.responce.RoleReponce;
 import com.example.aplusapp.model.responce.StatusResponce;
 
 import org.json.JSONObject;
@@ -21,6 +22,9 @@ public interface UserApiService {
 
     @POST("users/resetPasswordMobile")
     Call<Boolean> resetPasswordRequest(@Body ForgotPasswordReq data);
+
+    @GET("roles/getRolesMobile")
+    Call<List<RoleReponce>> getRoleList();
 
     @POST("users/resentUserPasswordMobile")
     Call<StatusResponce> doPasswordReset(@Body JSONObject data);
