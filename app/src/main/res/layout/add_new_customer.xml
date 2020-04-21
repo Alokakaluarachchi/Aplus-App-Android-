@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/backgr"
     tools:context=".activity.MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -127,29 +127,19 @@
         app:layout_constraintTop_toBottomOf="@+id/male"
         app:layout_constraintVertical_bias="0.024" />
 
-    <CheckBox
-        android:id="@+id/cok"
-        android:layout_width="311dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="140dp"
-        android:text="Agree with trem @condition"
-        android:textColor="#D4E713"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cphone" />
 
     <Button
         android:id="@+id/csubmitbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="104dp"
         android:background="#FFC107"
         android:backgroundTint="#FFC107"
         android:text="ADD"
         android:textColor="#092EFA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cok" />
 

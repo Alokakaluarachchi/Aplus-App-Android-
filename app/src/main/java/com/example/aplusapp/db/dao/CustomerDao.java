@@ -8,18 +8,18 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.example.aplusapp.model.Customer;
 import com.example.aplusapp.model.Customers;
 
 import java.util.List;
-import java.util.ListIterator;
 
 @Dao
-public interface customerDao {
+public interface CustomerDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insertCustomer(Customers customer);
+    void insertCustomer(Customer customer);
 
     @Update
-    void updateCustomer(Customers customer);
+    void updateCustomer(Customer customer);
 
     @Delete
     void deleteCustomer(Customers customer);
