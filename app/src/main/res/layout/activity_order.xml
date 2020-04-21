@@ -10,68 +10,37 @@
 
     <TextView
         android:id="@+id/Ordr"
-        android:layout_width="129dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="347dp"
+        android:layout_width="401dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="4dp"
+        android:background="@color/Bisque"
         android:shadowColor="@color/colorPrimary"
         android:text="@string/Ordr"
-        android:textStyle="bold"
+        android:textAlignment="center"
         android:textColor="@color/Black"
         android:textColorHighlight="@color/AliceBlue"
         android:textSize="40sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="1dp"
-        android:background="#D394EC"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Ordr"
-        app:tabSelectedTextColor="@color/DarkRed"
-        app:tabTextColor="@color/Black">
-
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/Ordr1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ORDER_01" />
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/Ordr2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ORDER_02" />
-
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/Ordr3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ORDER_03" />
-    </com.google.android.material.tabs.TabLayout>
-
     <TableLayout
         android:id="@+id/OdrTablelayot"
-        android:background="@color/white_with_alpha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="2dp"
+        android:layout_marginBottom="71dp"
+        android:background="@color/white_with_alpha"
+        app:layout_constraintBottom_toTopOf="@+id/btnOrderComplete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabLayout">
+        app:layout_constraintTop_toBottomOf="@+id/Ordr">
 
         <!-- first row.-->
         <TableRow
@@ -241,14 +210,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="83dp"
         android:layout_marginBottom="201dp"
         android:text="@string/btnComplete"
         android:textColor="@color/DarkRed"
         android:typeface="serif"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/OdrTablelayot" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnOrderDelete"

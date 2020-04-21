@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -17,40 +18,68 @@ import androidx.fragment.app.Fragment;
 import com.example.aplusapp.R;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class CashierActivity extends Fragment {
 
-    private Button btnPlaceOrder,btnDeleteOrder;
+    private EditText TextInputID;
+    private EditText TextInputItemName;
+    private EditText TextInputQty;
+    private Button BtnPlaceOrder;
+
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_cashier, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_cashier, container, false);
 
+        TextInputID = view.findViewById(R.id.Text_input_Item_ID);
+        TextInputItemName = view.findViewById(R.id.Text_input_Item_Name);
+        TextInputQty = view.findViewById(R.id.Text_input_Qty);
+        BtnPlaceOrder = view.findViewById(R.id.btnPlaceOrder);
 
-        Button btnPlaceOrder = rootView.findViewById(R.id.btnPlaceOrder);
-        Button btnCancelOrder = rootView.findViewById(R.id.btnCancelOrder);
-
-        btnPlaceOrder.setOnClickListener(new View.OnClickListener() {
+        BtnPlaceOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getActivity(),"Order is Placed",Toast.LENGTH_SHORT).show();
+                String IdInput = TextInputID.getText().toString().trim();
+                String NameInput = TextInputItemName.getText().toString().trim();
+                String QtyInput = TextInputQty.getText().toString().trim();
+
+                if (IdInput.isEmpty()) {
+
+                    TextInputID.setError("Field can't be Empty");
+                    return;
+                }
+
+                if (NameInput.isEmpty()) {
+
+                    TextInputItemName.setError("Field cannot be Empty");
+                    return;
+                }
+
+                if (QtyInput.isEmpty()) {
+
+                    TextInputQty.setError("Field cannot be Empty");
+                    return;
+                }
+
+
+
+
+
+                    Toast.makeText(getActivity(),"Order is Placed",Toast.LENGTH_SHORT).show();
+
+
             }
         });
 
-        btnCancelOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getActivity(),"Order is Canceled",Toast.LENGTH_SHORT).show();
-            }
-        });
 
 
-        return rootView;
-
-
-
+        return view;
     }
+
+
+
+
 }
