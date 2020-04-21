@@ -11,12 +11,16 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.aplusapp.R;
+import com.example.aplusapp.db.GeneralRoomDatabase;
+import com.example.aplusapp.db.repos.InventoryRepository;
+import com.example.aplusapp.model.Inventory;
 
+import java.nio.DoubleBuffer;
 import java.util.regex.Pattern;
 
 public class InventoryAdd extends Fragment {
 
-    private static final Pattern ID_PATTERN = Pattern.compile("^" +".{4,}" + "$"+"(?=.*[A,T])"+"(?=\\S+$)" );
+   // private static final Pattern ID_PATTERN = Pattern.compile("^" +".{4,}" + "$"+"(?=.*[A,T])"+"(?=\\S+$)" );
     //private  static final Pattern NO_PATTERN = Pattern.compile("^" + )
     private Button add;
     private EditText iid;
@@ -24,6 +28,7 @@ public class InventoryAdd extends Fragment {
     private EditText iquantity;
     private EditText isalesprice;
     private EditText icategory;
+   // private Inventory inventoryViewModel;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle   savedInstanceState) {
         View view =  inflater.inflate(R.layout.add_inventory, container, false);
@@ -35,6 +40,7 @@ public class InventoryAdd extends Fragment {
         iquantity= view.findViewById(R.id.iqty);
         isalesprice = view.findViewById(R.id.iprice);
         icategory = view.findViewById(R.id.icat);
+
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,20 +75,16 @@ public class InventoryAdd extends Fragment {
                     return ;
                 }
 
+                InventoryRepository inventoryrepo = new InventoryRepository(getActivity().getApplication());
+                Inventory imodel = new Inventory(Integer.parseInt(idInput),nameInput,Integer.parseInt(qtyInput),priceInput,categoryInput,true);
+                inventoryrepo.insertInventory(imodel);
+
             }
 
-
-        });
+            });
 
         return  view;
     }
-
-
-
-
-
-
-
 
 
 }
