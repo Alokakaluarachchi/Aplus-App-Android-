@@ -30,6 +30,10 @@ public class Inventory {
         this.Category=Category;
         this.IsActive = IsActive;
     }
+
+
+
+
     public int getID() {
         return ID;
     }
