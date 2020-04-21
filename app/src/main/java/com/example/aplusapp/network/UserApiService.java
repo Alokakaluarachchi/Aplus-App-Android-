@@ -2,6 +2,7 @@ package com.example.aplusapp.network;
 
 import com.example.aplusapp.model.RequestBody.AuthBody;
 import com.example.aplusapp.model.RequestBody.ForgotPasswordReq;
+import com.example.aplusapp.model.RequestBody.RequestNewAccount;
 import com.example.aplusapp.model.responce.AuthData;
 import com.example.aplusapp.model.responce.RoleReponce;
 import com.example.aplusapp.model.responce.StatusResponce;
@@ -28,6 +29,9 @@ public interface UserApiService {
 
     @POST("users/resentUserPasswordMobile")
     Call<StatusResponce> doPasswordReset(@Body JSONObject data);
+
+    @POST("users/requestNewAccount")
+    Call<Boolean> requestNewAccount(@Body RequestNewAccount data);
 
     @GET("users/forTest")
     Call<String> ApiTest();

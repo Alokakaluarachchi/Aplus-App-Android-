@@ -25,5 +25,8 @@ public interface RoleDao {
     @Query("SELECT * FROM role ORDER BY Role asc")
     LiveData<List<Role>> fetchAll();
 
+    @Query("select * from role where DisplayName like :name Limit 1")
+    Role findByName(String name);
+
 
 }

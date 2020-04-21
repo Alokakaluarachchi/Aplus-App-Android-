@@ -11,4 +11,10 @@ public class RequestNewAccount {
 
     @SerializedName("RoleID")
     public int roleID;
+
+    public RequestNewAccount(String email, String name, int roleID) {
+        this.email = email;
+        this.name = name;
+        this.roleID = roleID;
+    }
 }

@@ -46,4 +46,9 @@ public class RoleRepository {
         });
     }
 
+    public Role findByName(String name){
+        Role role = roleDao.findByName(name);
+        return role;
+    }
+
 }
