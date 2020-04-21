@@ -8,13 +8,14 @@
     tools:context=".MainActivity"
     >
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_marginBottom="50dp"
-    android:layout_height="200dp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="108dp"
+        android:layout_marginBottom="50dp" />
 
     <EditText
 
+        android:id="@+id/icode"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="50dp"
@@ -25,74 +26,80 @@
         android:gravity="center_horizontal"
         android:hint="@string/product_code"
         android:inputType="text"
+        android:textColor="@color/DarkCyan"
         android:textColorHint="@android:color/holo_blue_dark" />
 
     <EditText
 
-        android:layout_marginTop="20dp"
+        android:id="@+id/iname"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="50dp"
-        android:textColorHint="@android:color/holo_blue_dark"
+        android:autofillHints="@string/product_name"
         android:backgroundTint="@android:color/holo_blue_light"
         android:gravity="center_horizontal"
-        android:autofillHints="@string/product_name"
         android:hint="@string/product_name"
         android:inputType="text"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"/>
+        android:textColorHint="@android:color/holo_blue_dark" />
 
 
     <EditText
 
-        android:layout_marginTop="20dp"
+        android:id="@+id/iqty"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="50dp"
-        android:textColorHint="@android:color/holo_blue_dark"
+        android:autofillHints="@string/quantity"
         android:backgroundTint="@android:color/holo_blue_light"
         android:gravity="center_horizontal"
         android:hint="@string/quantity"
-        android:autofillHints="@string/quantity"
         android:inputType="number"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"/>
+        android:textColorHint="@android:color/holo_blue_dark" />
 
 
     <EditText
 
-        android:layout_marginTop="20dp"
+        android:id="@+id/icat"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="50dp"
-        android:textColorHint="@android:color/holo_blue_dark"
+        android:autofillHints="@string/category"
         android:backgroundTint="@android:color/holo_blue_light"
         android:gravity="center_horizontal"
         android:hint="@string/category"
-        android:autofillHints="@string/category"
         android:inputType="text"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"/>
+        android:textColorHint="@android:color/holo_blue_dark" />
 
     <EditText
 
-    android:layout_marginTop="20dp"
-    android:layout_marginLeft="50dp"
-    android:layout_marginRight="50dp"
-    android:textColorHint="@android:color/holo_blue_dark"
-    android:backgroundTint="@android:color/holo_blue_light"
-    android:gravity="center_horizontal"
-    android:hint="@string/sales_price"
+        android:id="@+id/iprice"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="50dp"
         android:autofillHints="@string/sales_price"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:gravity="center_horizontal"
+        android:hint="@string/sales_price"
         android:inputType="text"
-    android:layout_width="match_parent"
-    android:layout_height="50dp"/>
+        android:textColorHint="@android:color/holo_blue_dark" />
 
     <Button
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/iadd"
+        android:layout_width="98dp"
+        android:layout_height="34dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/shape_button"
         android:text="@string/add_inventory"
-        android:layout_marginBottom="50dp"
         android:textColor="@color/Black" />
 
 
