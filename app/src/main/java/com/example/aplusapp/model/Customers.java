@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
 
-@Entity(tableName = "customer" ,indices = {@Index("fristname"), @Index("nic")})
+@Entity(tableName = "customer" ,indices = {@Index("Fristname"), @Index("NIC")})
 public class Customers {
     @PrimaryKey(autoGenerate = true)
     @NotNull

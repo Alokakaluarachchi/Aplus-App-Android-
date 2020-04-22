@@ -10,5 +10,6 @@ public class SharedConst {
 
 
     public static final String SETTINGS_EMAIL = "EMAIL";
+    public static final String SETTINGS_JWT = "JWT_TOKEN";
 
 }
