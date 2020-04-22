@@ -197,7 +197,16 @@ public class UserListActivity extends Fragment {
 
             repo.removeUser();
 
+            List<Users> users = new ArrayList<>();
 
+            Users user;
+            for (UserListResult result: _data
+                 ) {
+                user = new Users(result.getId(), result.getUserName(), result.getRoleID(), result.getRoleName(), result.getEmail(), null, 1, true, result.getModifyAllowed());
+                users.add(user);
+            }
+
+            repo.insertUsers(users);
 
             return null;
         }

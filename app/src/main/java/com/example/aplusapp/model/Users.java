@@ -100,7 +100,7 @@ public class Users {
         OrgID = orgID;
     }
 
-    public boolean isActive() {
+    public boolean IsActive() {
         return IsActive;
     }
 
