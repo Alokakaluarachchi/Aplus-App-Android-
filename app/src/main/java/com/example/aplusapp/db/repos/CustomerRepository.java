@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData;
 
 import com.example.aplusapp.db.GeneralRoomDatabase;
 import com.example.aplusapp.db.dao.CustomerDao;
-import com.example.aplusapp.model.Customer;
 import com.example.aplusapp.model.Customers;
 
 import java.util.List;
