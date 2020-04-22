@@ -50,6 +50,7 @@ public class InventoryAdd extends Fragment {
                 String qtyInput = iquantity.getText().toString().trim();
                 String priceInput = isalesprice.getEditableText().toString().trim();
                 String categoryInput = icategory.getEditableText().toString().trim();
+
                 if(idInput.isEmpty()){
                     iid.setError("Field can't be empty");
                     return ;
