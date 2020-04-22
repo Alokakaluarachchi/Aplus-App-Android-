@@ -5,6 +5,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -13,34 +16,59 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.TableLayout;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.example.aplusapp.R;
+import com.example.aplusapp.adepter.OrderAdapter;
+import com.example.aplusapp.db.repos.CashierRepository;
+import com.example.aplusapp.db.repos.OrderRepository;
+import com.example.aplusapp.model.Cashier;
+import com.example.aplusapp.model.Order;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
 public class OrderActivity extends Fragment{
 
-    private Button btnOrderComplete,btnOrderDelete;
+    private Button btnOrderUpdate,btnOrderDelete;
+    private EditText TextInputID;
+    private EditText TextInputItemName;
+    private EditText TextInputQty;
+    private RecyclerView RecyclerView1;
 
     @Nullable
     @Override
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_order, container, false);
+        View view = inflater.inflate(R.layout.activity_order, container, false);
 
-        Button btnOrderComplete = rootView.findViewById(R.id.btnOrderComplete);
-        Button btnOrderDelete = rootView.findViewById(R.id.btnOrderDelete);
+        TextInputID = view.findViewById(R.id.Text_input_Item_ID);
+        TextInputItemName = view.findViewById(R.id.Text_input_Item_Name);
+        TextInputQty = view.findViewById(R.id.Text_input_Qty);
 
-        btnOrderComplete.setOnClickListener(new View.OnClickListener() {
+        btnOrderUpdate =view.findViewById(R.id.btnOrderUpdate);
+        btnOrderDelete = view.findViewById(R.id.btnOrderDelete);
+
+        RecyclerView1 = view.findViewById(R.id.recyclerView2);
+
+        OrderAdapter listAdapter = new OrderAdapter();
+        RecyclerView1.setAdapter(listAdapter);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        RecyclerView1.setLayoutManager(layoutManager);
+
+
+        btnOrderUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),"Order is Completed",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"Order is Updated",Toast.LENGTH_SHORT).show();
             }
 
-
+      //      CashierRepository cashrepo = new CashierRepository(getActivity().getApplication());
+      //      Cashier cmode = new Cashier(Integer.parseInt(IdInput),NameInput,Integer.parseInt(QtyInput),true);
+            //      cashrepo.updateCashier(cmode);
 
 
         });
@@ -52,6 +80,6 @@ public class OrderActivity extends Fragment{
             }
         });
 
-        return rootView;
+        return view;
     }
 }
