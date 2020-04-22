@@ -150,6 +150,10 @@ public class MainActivity extends AppCompatActivity {
                             }else{
                                 editor.putBoolean(SharedConst.APP_CREDENTIAL_SAVED, false);
                             }
+
+                            //set JWT token
+                            editor.putString(SharedConst.SETTINGS_JWT, CryptoHelper.encrypt(response.body().getToken()));
+
                             editor.apply();
 
                         } catch (Exception e) {

@@ -16,10 +16,10 @@ import java.util.List;
 @Dao
 public interface CustomerDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insertCustomer(Customer customer);
+    void insertCustomer(Customers customer);
 
     @Update
-    void updateCustomer(Customer customer);
+    void updateCustomer(Customers customer);
 
     @Delete
     void deleteCustomer(Customers customer);
