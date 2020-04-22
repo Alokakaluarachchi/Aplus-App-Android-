@@ -28,6 +28,7 @@
             app:endIconTint="@color/colorPrimaryDark">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp" />
@@ -46,6 +47,7 @@
             app:endIconTint="@color/colorPrimaryDark">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp" />
@@ -111,7 +113,7 @@
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/outlinedButton"
+        android:id="@+id/btnRequest"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

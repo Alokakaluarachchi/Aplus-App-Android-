@@ -207,7 +207,9 @@ public class MainActivity extends AppCompatActivity {
 
             Users user = repo.findByID(_data.getUserID());
 
-            Users authUser = new Users(_data.getUserID(), _data.getUserName(), _data.getRoleID(), _data.getEmail(), txtPassword.getText().toString(), _data.getOrganizationID(), true );
+            String password = txtPassword.getText().toString();
+
+            Users authUser = new Users(_data.getUserID(), _data.getUserName(), _data.getRoleID(), _data.getEmail(), password, _data.getOrganizationID(), true );
 
             if(user == null){
                 Log.i("dbAccess", "hit as  the new user");
