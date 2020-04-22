@@ -9,10 +9,8 @@ import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
 
-import com.anychart.enums.StockRangeType;
 import com.example.aplusapp.R;
 import com.example.aplusapp.db.repos.CustomerRepository;
-import com.example.aplusapp.model.Customer;
 import com.example.aplusapp.model.Customers;
 
 public class Customerupdate extends Fragment {

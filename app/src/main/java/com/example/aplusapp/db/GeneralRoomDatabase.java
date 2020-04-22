@@ -13,7 +13,6 @@ import com.example.aplusapp.db.dao.OrderDao;
 import com.example.aplusapp.db.dao.RoleDao;
 import com.example.aplusapp.db.dao.UserDao;
 import com.example.aplusapp.model.Cashier;
-import com.example.aplusapp.model.Customer;
 import com.example.aplusapp.model.Customers;
 import com.example.aplusapp.model.Inventory;
 import com.example.aplusapp.model.Order;

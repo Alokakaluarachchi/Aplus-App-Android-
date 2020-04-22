@@ -8,7 +8,6 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.aplusapp.model.Customer;
 import com.example.aplusapp.model.Customers;
 
 import java.util.List;
