@@ -57,7 +57,7 @@ public class ReqAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_req_account);
 
-        txtEmail = findViewById(R.id.txtUsername);
+        txtEmail = findViewById(R.id.txtEmail);
         txtUserName = findViewById(R.id.txtUsername);
 
         btnRequest = findViewById(R.id.btnRequest);
@@ -88,15 +88,17 @@ public class ReqAccountActivity extends AppCompatActivity {
                     return;
                 }
 
-                if(!CommonServices.isValidEmail(txtEmail.getText().toString().trim())){
+
+                if(!CommonServices.isValidEmail(txtEmail.getText())){
                     Toasty.warning(getApplicationContext(), "Please enter correct Email address !", Toast.LENGTH_SHORT, true).show();
                     return;
                 }
 
-                if(spinner.getSelectedItem().toString().length() == 0){
+                if(spinner.getSelectedItem() == null){
                     Toasty.warning(getApplicationContext(), "Please select role !", Toast.LENGTH_SHORT, true).show();
                     return;
                 }
+
 
                 String selectedText = spinner.getSelectedItem().toString();
 
@@ -167,6 +169,7 @@ public class ReqAccountActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<List<RoleReponce>> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT);
                     circularProgressBarDialog.dismiss();
                 }
             });
@@ -195,7 +198,10 @@ public class ReqAccountActivity extends AppCompatActivity {
 
                 Role role = roleRepository.findByName(selectedRoleName);
 
-                RequestNewAccount requestNewAccount = new RequestNewAccount(txtEmail.getText().toString(), txtUserName.getText().toString(), role.getID());
+                String email = txtEmail.getText().toString();
+                String username = txtUserName.getText().toString();
+
+                RequestNewAccount requestNewAccount = new RequestNewAccount(email, username, role.getID());
 
                 Call<Boolean> call = apiService.requestNewAccount(requestNewAccount);
 
@@ -203,14 +209,20 @@ public class ReqAccountActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Boolean> call, Response<Boolean> response) {
 
+                        if(response.body()){
+                            Toasty.success(getApplicationContext(), "Request sent successfully !", Toast.LENGTH_SHORT, true).show();
+                            startActivity(new Intent(ReqAccountActivity.this, MainActivity.class));
+                        }else{
+                            Toasty.warning(getApplicationContext(), "Try again !", Toast.LENGTH_SHORT, true).show();
+                        }
+                        circularProgressBarDialog.dismiss();
                     }
-
                     @Override
                     public void onFailure(Call<Boolean> call, Throwable t) {
-
+                        Toast.makeText(getApplicationContext(), t.getLocalizedMessage(), Toast.LENGTH_SHORT);
+                        circularProgressBarDialog.dismiss();
                     }
                 });
-
                 return null;
             }
         }
