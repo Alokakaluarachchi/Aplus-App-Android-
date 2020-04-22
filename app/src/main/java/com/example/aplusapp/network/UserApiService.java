@@ -6,6 +6,7 @@ import com.example.aplusapp.model.RequestBody.RequestNewAccount;
 import com.example.aplusapp.model.responce.AuthData;
 import com.example.aplusapp.model.responce.RoleReponce;
 import com.example.aplusapp.model.responce.StatusResponce;
+import com.example.aplusapp.model.responce.UserListResult;
 
 import org.json.JSONObject;
 
@@ -14,6 +15,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface UserApiService {
@@ -32,6 +34,9 @@ public interface UserApiService {
 
     @POST("users/requestNewAccount")
     Call<Boolean> requestNewAccount(@Body RequestNewAccount data);
+
+    @POST("users/getAllUsers")
+    Call<List<UserListResult>> getAllUsers(@Header("Authorization") String token, @Body JSONObject role);
 
     @GET("users/forTest")
     Call<String> ApiTest();

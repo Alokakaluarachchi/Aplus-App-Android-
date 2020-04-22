@@ -46,6 +46,12 @@ public class UserRepository {
         });
     }
 
+    public void removeUser(){
+        GeneralRoomDatabase.databaseWriteExecutor.execute(() -> {
+            userDao.removeAll();
+        });
+    }
+
     public void updateUser(Users user){
         GeneralRoomDatabase.databaseWriteExecutor.execute(() -> {
             userDao.updateUser(user);
