@@ -27,7 +27,7 @@ public class CustomerRepository {
             customerDao.insertCustomer(customer);
         });
     }
-    public void removeCustomer(int id){
+    public void removeCustomer(Customers id){
         GeneralRoomDatabase.databaseWriteExecutor.execute(() -> {
             customerDao.removeByID(id);
         });

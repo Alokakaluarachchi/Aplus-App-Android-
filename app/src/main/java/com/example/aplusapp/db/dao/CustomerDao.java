@@ -33,5 +33,5 @@ public interface CustomerDao {
     void removeAll();
 
     @Query("delete from customer where ID = :ID")
-    void removeByID(int ID);
+    void removeByID(Customers ID);
 }

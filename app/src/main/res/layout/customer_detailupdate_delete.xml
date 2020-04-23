@@ -102,27 +102,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nic" />
 
-    <Button
-        android:id="@+id/cudelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="96dp"
-        android:background="#FFC107"
-        android:hapticFeedbackEnabled="false"
-        android:text="delete"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cphone" />
 
     <Button
         android:id="@+id/cuupdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="284dp"
-        android:textSize="30sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="60dp"
         android:background="#FFC107"
-        android:text="UPdate"
+        android:text="update"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cphone" />
 
@@ -131,7 +119,7 @@
         android:layout_width="345dp"
         android:layout_height="48dp"
         android:layout_marginTop="32dp"
-        android:text="Customer profile Update @ Delete"
+        android:text="            Customer profile Update"
         android:textColor="@color/Yellow"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -35,6 +35,12 @@ public class Customers {
         this.Phone = Phone;
         this.IsActive = IsActive;
     }
+
+    public Customers(String NIC) {
+        this.NIC= NIC;
+    }
+
+
     public int getID() { return ID; }
 
     @NotNull
