@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aplusapp.R;
+import com.example.aplusapp.adepter.ClickListener;
 import com.example.aplusapp.adepter.UserAdapter;
 import com.example.aplusapp.db.repos.UserRepository;
 import com.example.aplusapp.model.User;
@@ -78,7 +79,17 @@ public class UserListActivity extends Fragment {
             startActivity(new Intent(getActivity(), MainActivity.class));
         }
 
-        mAdapter = new UserAdapter(userList);
+        mAdapter = new UserAdapter(userList, new ClickListener() {
+            @Override
+            public void onPositionClicked(int position) {
+
+            }
+
+            @Override
+            public void onLongClicked(int position) {
+
+            }
+        });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -195,6 +206,7 @@ public class UserListActivity extends Fragment {
             Log.i("dbAccess", "hit the async task");
             UserRepository repo = new UserRepository(getActivity().getApplication());
 
+            //remove all users
             repo.removeUser();
 
             List<Users> users = new ArrayList<>();
@@ -205,7 +217,7 @@ public class UserListActivity extends Fragment {
                 user = new Users(result.getId(), result.getUserName(), result.getRoleID(), result.getRoleName(), result.getEmail(), null, 1, true, result.getModifyAllowed());
                 users.add(user);
             }
-
+            //add users to db
             repo.insertUsers(users);
 
             return null;
