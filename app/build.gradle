@@ -49,6 +49,7 @@ dependencies {
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
     implementation 'com.intellij:annotations:+@jar'
     implementation 'com.mikhaellopez:circularprogressbar:3.0.3'
+    //implementation 'com.android.support:recyclerview-v7:21.0.0-rc1'
 
     implementation 'com.github.GrenderG:Toasty:1.4.2'
 
