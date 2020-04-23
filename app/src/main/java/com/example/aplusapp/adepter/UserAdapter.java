@@ -46,7 +46,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder>{
         @Override
         public void onClick(View v) {
             if (v.getId() == btnEdit.getId()) {
-                Toast.makeText(v.getContext(), "ITEM PRESSED = " + String.valueOf(getAdapterPosition()), Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), "ITEM PRESSED = " + String.valueOf(userName.getText().toString() ), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(v.getContext(), "ITEM PRESSED = " + String.valueOf(getAdapterPosition()), Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(v.getContext(), "ROW PRESSED = " + String.valueOf(getAdapterPosition()), Toast.LENGTH_SHORT).show();
             }
@@ -78,6 +79,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder>{
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         User user = userList.get(position);
         holder.userName.setText(user.getUserName());
+        holder.userName.setTag(user.getId());
         holder.userRole.setText(user.getRole());
     }
 

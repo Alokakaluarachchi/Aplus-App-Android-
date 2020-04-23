@@ -164,6 +164,7 @@ public class UserListActivity extends Fragment {
                     for (UserListResult result: response.body()
                     ) {
                         user = new User(result.getUserName(), result.getRoleName());
+                        user.setId(result.getId());
                         userList.add(user);
                     }
 
