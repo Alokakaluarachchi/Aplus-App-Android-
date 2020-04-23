@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.aplusapp.R;
 import com.example.aplusapp.db.GeneralRoomDatabase;
@@ -45,11 +46,11 @@ public class InventoryAdd extends Fragment {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String idInput = iid.getEditableText().toString().trim();
-                String nameInput = iname.getEditableText().toString().trim();
+                String idInput = iid.getText().toString().trim();
+                String nameInput = iname.getText().toString().trim();
                 String qtyInput = iquantity.getText().toString().trim();
-                String priceInput = isalesprice.getEditableText().toString().trim();
-                String categoryInput = icategory.getEditableText().toString().trim();
+                String priceInput = isalesprice.getText().toString().trim();
+                String categoryInput = icategory.getText().toString().trim();
 
                 if(idInput.isEmpty()){
                     iid.setError("Field can't be empty");
@@ -79,6 +80,8 @@ public class InventoryAdd extends Fragment {
                 InventoryRepository inventoryrepo = new InventoryRepository(getActivity().getApplication());
                 Inventory imodel = new Inventory(Integer.parseInt(idInput),nameInput,Integer.parseInt(qtyInput),priceInput,categoryInput,true);
                 inventoryrepo.insertInventory(imodel);
+
+                Toast.makeText(getActivity(),"Successfully added",Toast.LENGTH_SHORT).show();
 
             }
 
