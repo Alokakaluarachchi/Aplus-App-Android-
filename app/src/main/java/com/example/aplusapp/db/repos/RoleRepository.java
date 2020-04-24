@@ -51,4 +51,8 @@ public class RoleRepository {
         return role;
     }
 
+    public List<Role> loadAll(){
+        return roleDao.loadAll();
+    }
+
 }
