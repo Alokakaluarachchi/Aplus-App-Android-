@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData;
 
 import com.example.aplusapp.db.GeneralRoomDatabase;
 import com.example.aplusapp.db.dao.CustomerDao;
-import com.example.aplusapp.model.Customer;
 import com.example.aplusapp.model.Customers;
 
 import java.util.List;
@@ -28,7 +27,7 @@ public class CustomerRepository {
             customerDao.insertCustomer(customer);
         });
     }
-    public void removeCustomer(int id){
+    public void removeCustomer(Customers id){
         GeneralRoomDatabase.databaseWriteExecutor.execute(() -> {
             customerDao.removeByID(id);
         });

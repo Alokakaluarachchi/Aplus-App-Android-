@@ -8,7 +8,6 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.aplusapp.model.Customer;
 import com.example.aplusapp.model.Customers;
 
 import java.util.List;
@@ -34,5 +33,5 @@ public interface CustomerDao {
     void removeAll();
 
     @Query("delete from customer where ID = :ID")
-    void removeByID(int ID);
+    void removeByID(Customers ID);
 }

@@ -108,5 +108,6 @@
     <string name="app_phone">Phone</string>
     <string name="app_confirm_password">Confirm-Password</string>
     <string name="app_save_changes">Save changes</string>
+    <string name="add">ADD</string>
 
 </resources>
