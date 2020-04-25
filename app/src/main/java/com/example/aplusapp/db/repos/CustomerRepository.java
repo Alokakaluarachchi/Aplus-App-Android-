@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData;
 
 import com.example.aplusapp.db.GeneralRoomDatabase;
 import com.example.aplusapp.db.dao.CustomerDao;
-import com.example.aplusapp.model.Customer;
 import com.example.aplusapp.model.Customers;
 
 import java.util.List;
@@ -23,7 +22,7 @@ public class CustomerRepository {
     public LiveData<List<Customers>> fetchAllUses() {
         return allCustomerss;
     }
-    public void insertCustomer(Customer customer) {
+    public void insertCustomer(Customers customer) {
         GeneralRoomDatabase.databaseWriteExecutor.execute(() -> {
             customerDao.insertCustomer(customer);
         });
@@ -33,7 +32,7 @@ public class CustomerRepository {
             customerDao.removeByID(id);
         });
     }
-    public void updateCustomer(Customer customer){
+    public void updateCustomer(Customers customer){
         GeneralRoomDatabase.databaseWriteExecutor.execute(() -> {
             customerDao.updateCustomer(customer);
         });

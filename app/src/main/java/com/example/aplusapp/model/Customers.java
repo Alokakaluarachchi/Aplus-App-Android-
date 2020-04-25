@@ -1,13 +1,15 @@
 package com.example.aplusapp.model;
 
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import org.jetbrains.annotations.NotNull;
 
-@Entity(tableName = "customer" ,indices = {@Index("fristname"), @Index("nic")})
+@Entity(tableName = "customer" )
 public class Customers {
     @PrimaryKey(autoGenerate = true)
     @NotNull
@@ -21,16 +23,26 @@ public class Customers {
     @NotNull
     private String NIC;
     @NotNull
-    private int Phone;
+    private String Phone;
 
-    public Customers(int ID, @NotNull String Fristname, @NotNull String Lastname, @NotNull String Email, @NotNull String NIC, @NotNull int Phone) {
+    private boolean IsActive;
+
+    public Customers(@NonNull int ID,@NotNull String Fristname, @NotNull String Lastname, @NotNull String Email, @NotNull String NIC, @NotNull String Phone, Boolean IsActive) {
         this.ID = ID;
         this.Fristname = Fristname;
         this.Lastname = Lastname;
         this.Email = Email;
         this.NIC = NIC;
         this.Phone = Phone;
+        this.IsActive = IsActive;
     }
+
+    @Ignore
+    public Customers(String NIC) {
+        this.NIC= NIC;
+    }
+
+
     public int getID() { return ID; }
 
     @NotNull
@@ -46,6 +58,7 @@ public class Customers {
     public  String getNIC(){ return NIC; }
 
     @NotNull
-    public int getPhone(){ return Phone; }
+    public String getPhone(){ return Phone; }
 
+    public boolean getIsActive() { return IsActive; }
 }

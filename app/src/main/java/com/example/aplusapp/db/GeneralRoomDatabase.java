@@ -13,7 +13,7 @@ import com.example.aplusapp.db.dao.OrderDao;
 import com.example.aplusapp.db.dao.RoleDao;
 import com.example.aplusapp.db.dao.UserDao;
 import com.example.aplusapp.model.Cashier;
-import com.example.aplusapp.model.Customer;
+import com.example.aplusapp.model.Customers;
 import com.example.aplusapp.model.Inventory;
 import com.example.aplusapp.model.Order;
 import com.example.aplusapp.model.Role;
@@ -24,7 +24,7 @@ import java.util.concurrent.Executors;
 
 
 
-@Database(entities = {Users.class, Inventory.class, Order.class, Cashier.class, Customer.class, Role.class}, version = 1, exportSchema = false)
+@Database(entities = {Users.class, Inventory.class, Order.class, Cashier.class, Customers.class, Role.class}, version = 1, exportSchema = false)
 public abstract class GeneralRoomDatabase extends RoomDatabase {
 
     public abstract UserDao userDao();
