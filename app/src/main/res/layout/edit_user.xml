@@ -16,11 +16,11 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="70dp"
-        android:backgroundTint="@color/SeaGreen"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/round_background"
+        android:backgroundTint="@color/SeaGreen"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintCircleRadius="5dp"
@@ -45,10 +45,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center_horizontal"
-            android:textColor="@color/white_with_alpha"
-            android:textStyle="bold"
-            android:textSize="17sp"
             android:text="@string/app_chnage_user_title"
+            android:textColor="@color/white_with_alpha"
+            android:textSize="17sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -68,8 +68,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="25dp"
+                android:layout_marginRight="20dp"
                 android:hint="@string/app_username_hint"
                 app:endIconMode="clear_text">
 
@@ -85,8 +85,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
                 android:hint="@string/app_email"
                 app:endIconMode="clear_text">
 
@@ -102,11 +102,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp"
                 app:ms_alignLabels="true"
                 app:ms_arrowColor="@color/Black"
                 app:ms_arrowSize="12dp"
-                android:layout_marginTop="10dp"
                 app:ms_baseColor="@color/Blue"
                 app:ms_enableErrorLabel="false"
                 app:ms_enableFloatingLabel="true"
@@ -125,8 +125,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
                 android:hint="@string/app_phone"
                 app:endIconMode="clear_text">
 
@@ -137,13 +137,22 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:text="if you don't want to change password leave it as blank"
+                android:textColor="@color/orange_popup" />
+
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="8dp"
                 android:hint="@string/app_password_hint"
                 app:endIconCheckable="true"
@@ -163,8 +172,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="8dp"
                 android:hint="@string/app_confirm_password"
                 app:endIconCheckable="true"
@@ -185,9 +194,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:layout_marginRight="20dp"
                 android:text="@string/app_save_changes"
                 app:icon="@drawable/ic_check_black_24dp"
-                android:layout_marginRight="20dp"
                 app:iconGravity="end"
                 app:layout_constraintEnd_toEndOf="parent" />
 

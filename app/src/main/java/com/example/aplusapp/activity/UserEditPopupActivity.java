@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -46,6 +47,7 @@ public class UserEditPopupActivity extends DialogFragment {
     private CircularProgressBarDialog circularProgressBarDialog;
 
     private EditText txtUserName, txtEmail, txtPhone, txtPassword, txtConfirmPassword;
+    private TextView btnClose;
     MaterialSpinner spinner;
 
     private List<String> ITEMS = new ArrayList<>();
@@ -68,6 +70,8 @@ public class UserEditPopupActivity extends DialogFragment {
         txtConfirmPassword = view.findViewById(R.id.txtConfirmPassword);
         spinner = (MaterialSpinner) view.findViewById(R.id.spinnerRole);
 
+        btnClose = view.findViewById(R.id.btnClose);
+
         retrofit = APIClient.getClient(); //initialize Retrofit Client
         apiService = retrofit.create(UserApiService.class); //Register the Api Service
 
@@ -82,6 +86,13 @@ public class UserEditPopupActivity extends DialogFragment {
         new dbProcess(this).execute();
 
         backgroundLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //dismiss();
+            }
+        });
+
+        btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dismiss();
@@ -117,6 +128,7 @@ public class UserEditPopupActivity extends DialogFragment {
 
         return dialog;
     }
+
 
     private class dbProcess extends AsyncTask<Void, Void, Void> {
 
@@ -163,7 +175,7 @@ public class UserEditPopupActivity extends DialogFragment {
 
 
                                 spinner.setAdapter(adapter);
-                                LoadUserInformation();
+                                new setData().execute();
                                 circularProgressBarDialog.dismiss();
                             } catch (Exception ex) {
                                 ex.printStackTrace();
@@ -187,80 +199,34 @@ public class UserEditPopupActivity extends DialogFragment {
 
     private class setData extends AsyncTask<Void, Void, Void> {
 
-        LifecycleOwner context1;
-
-        public setData(LifecycleOwner context) {
-            context1 = context;
-        }
 
         @Override
         protected Void doInBackground(Void... voids) {
-            //show progress bar
-            circularProgressBarDialog.show(Objects.requireNonNull(getActivity()).getSupportFragmentManager(), null);
+            UserRepository repo = new UserRepository(getActivity().getApplication());
+            int userID = Integer.parseInt(mArgs.getString(SharedConst.SETTINGS_ID));
+            Users user = repo.findByID(userID);
 
-            Call<List<RoleReponce>> call = apiService.getRoleList();
-
-            call.enqueue(new Callback<List<RoleReponce>>() {
+            getActivity().runOnUiThread(new Runnable() {
                 @Override
-                public void onResponse(Call<List<RoleReponce>> call, Response<List<RoleReponce>> response) {
-                    Log.i("dbAccess", "hit the async task");
-                    RoleRepository roleRepository = new RoleRepository(getActivity().getApplication());
+                public void run() {
 
-                    List<Role> roles = new ArrayList<>();
-                    Role roleNew;
-                    for (RoleReponce roleR : response.body()) {
-                        roleNew = new Role(roleR.getId(), roleR.getRoleName(), roleR.getRoleDisplayName(), roleR.getEditable() == null ? false : roleR.getEditable());
-                        roles.add(roleNew);
+                    try{
+
+                        txtUserName.setText(user.getUserName());
+                        txtEmail.setText(user.getEmail());
+                        txtPhone.setText(user.getPhone());
+                        spinner.setSelection(adapter.getPosition(user.getRoleName()));
+                        circularProgressBarDialog.dismiss();
+                    }catch (Exception ex){
+                        ex.printStackTrace();
+                        circularProgressBarDialog.dismiss();
                     }
 
-                    roleRepository.insertRole(roles);
-
-                    roleRepository.fetchAllRoles().observe(context1, new Observer<List<Role>>() {
-                        @Override
-                        public void onChanged(List<Role> roles) {
-
-                            try {
-                                for (Role role : roles
-                                ) {
-                                    ITEMS.add(role.getRole());
-                                }
-
-                                adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, ITEMS);
-                                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-
-                                spinner.setAdapter(adapter);
-                                LoadUserInformation();
-                                circularProgressBarDialog.dismiss();
-                            } catch (Exception ex) {
-                                ex.printStackTrace();
-                                circularProgressBarDialog.dismiss();
-                            }
-                        }
-                    });
-
-                    return;
-                }
-
-                @Override
-                public void onFailure(Call<List<RoleReponce>> call, Throwable t) {
-                    Toast.makeText(getActivity(), t.getLocalizedMessage(), Toast.LENGTH_SHORT);
-                    circularProgressBarDialog.dismiss();
                 }
             });
+
             return null;
         }
     }
 
-    private void LoadUserInformation(){
-        UserRepository repo = new UserRepository(getActivity().getApplication());
-
-        Users user = repo.findByID(Integer.parseInt(mArgs.getString(SharedConst.SETTINGS_ID)));
-
-        txtUserName.setText(user.getUserName());
-        txtEmail.setText(user.getEmail());
-        txtPhone.setText(user.getEmail());
-        spinner.setSelection(adapter.getPosition(user.getRoleName()));
-        circularProgressBarDialog.dismiss();
-    }
 }

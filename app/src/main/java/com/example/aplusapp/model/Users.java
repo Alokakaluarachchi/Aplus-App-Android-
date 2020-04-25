@@ -21,6 +21,8 @@ public class Users {
     private String Email;
     @Nullable
     private String Password;
+    @Nullable
+    private String Phone;
     @NonNull
     private int OrgID;
     @NonNull
@@ -28,7 +30,7 @@ public class Users {
     @NonNull
     private boolean ModifiedAllowed;
 
-    public Users(int ID, @NonNull String UserName, int RoleID, @NonNull String RoleName, @NonNull String Email, @Nullable String Password, int OrgID, boolean IsActive, boolean ModifiedAllowed) {
+    public Users(int ID, @NonNull String UserName, int RoleID, @NonNull String RoleName, @NonNull String Email, @Nullable String Password, @Nullable String Phone, int OrgID, boolean IsActive, boolean ModifiedAllowed) {
         this.ID = ID;
         this.UserName = UserName;
         this.RoleID = RoleID;
@@ -38,6 +40,7 @@ public class Users {
         this.OrgID = OrgID;
         this.IsActive = IsActive;
         this.ModifiedAllowed = ModifiedAllowed;
+        this.Phone = Phone;
     }
 
     public int getID() {
@@ -114,5 +117,14 @@ public class Users {
 
     public void setModifiedAllowed(boolean modifiedAllowed) {
         ModifiedAllowed = modifiedAllowed;
+    }
+
+    @Nullable
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(@Nullable String phone) {
+        Phone = phone;
     }
 }

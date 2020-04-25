@@ -208,18 +208,27 @@ public class UserListActivity extends Fragment {
             UserRepository repo = new UserRepository(getActivity().getApplication());
 
             //remove all users
-            repo.removeUser();
+            //repo.removeUser();
 
             List<Users> users = new ArrayList<>();
 
             Users user;
             for (UserListResult result: _data
                  ) {
-                user = new Users(result.getId(), result.getUserName(), result.getRoleID(), result.getRoleName(), result.getEmail(), null, 1, true, result.getModifyAllowed());
-                users.add(user);
+
+                Users userExists = repo.findByID(result.getId());
+
+                user = new Users(result.getId(), result.getUserName(), result.getRoleID(), result.getRoleName(), result.getEmail(), null, result.getPhone(), 1,true,  result.getModifyAllowed());
+                //users.add(user);
+
+                if(userExists == null){
+                    repo.insertUser(user);
+                }else{
+                    repo.updateUser(user);
+                }
             }
             //add users to db
-            repo.insertUsers(users);
+            //repo.insertUsers(users);
 
             return null;
         }
