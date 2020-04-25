@@ -3,6 +3,7 @@ package com.example.aplusapp.model;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
@@ -36,6 +37,7 @@ public class Customers {
         this.IsActive = IsActive;
     }
 
+    @Ignore
     public Customers(String NIC) {
         this.NIC= NIC;
     }

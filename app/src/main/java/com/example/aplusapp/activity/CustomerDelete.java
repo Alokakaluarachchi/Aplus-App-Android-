@@ -38,7 +38,7 @@ public class CustomerDelete extends Fragment {
 
                 CustomerRepository customerRepository = new CustomerRepository(getActivity().getApplication());
                 Customers cmodel = new Customers(nicdelete);
-                customerRepository.removeCustomer(cmodel);
+                customerRepository.removeCustomer(cmodel.getID());
 
             }
         });
