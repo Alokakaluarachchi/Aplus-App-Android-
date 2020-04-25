@@ -25,6 +25,9 @@ public class UserListResult {
     @Expose
     @SerializedName("locked")
     private String Locked;
+    @Expose
+    @SerializedName("phone")
+    private String Phone;
 
     public int getId() {
         return id;
@@ -80,5 +83,13 @@ public class UserListResult {
 
     public void setLocked(String locked) {
         Locked = locked;
+    }
+
+    public String getPhone() {
+        return Phone;
+    }
+
+    public void setPhone(String phone) {
+        Phone = phone;
     }
 }

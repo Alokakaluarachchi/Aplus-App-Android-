@@ -1,5 +1,6 @@
 package com.example.aplusapp.adepter;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +9,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.aplusapp.R;
+import com.example.aplusapp.activity.UserEditPopupActivity;
 import com.example.aplusapp.model.User;
+import com.example.aplusapp.utils.SharedConst;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -46,7 +51,18 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder>{
         @Override
         public void onClick(View v) {
             if (v.getId() == btnEdit.getId()) {
-                Toast.makeText(v.getContext(), "ITEM PRESSED = " + String.valueOf(userName.getText().toString() ), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(v.getContext(), "ITEM PRESSED = " + String.valueOf(userName.getText().toString() ), Toast.LENGTH_SHORT).show();
+
+                FragmentManager fragmentManager = ((FragmentActivity) v.getContext()).getSupportFragmentManager();
+
+                Bundle args = new Bundle();
+                args.putString(SharedConst.SETTINGS_ID, userName.getTag().toString());
+
+                UserEditPopupActivity userEditPopupActivity = new UserEditPopupActivity();
+                //set the arguments to pass
+                userEditPopupActivity.setArguments(args);
+                userEditPopupActivity.show(fragmentManager,null);
+
                 //Toast.makeText(v.getContext(), "ITEM PRESSED = " + String.valueOf(getAdapterPosition()), Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(v.getContext(), "ROW PRESSED = " + String.valueOf(getAdapterPosition()), Toast.LENGTH_SHORT).show();
