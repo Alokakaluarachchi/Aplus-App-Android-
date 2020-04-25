@@ -1,13 +1,9 @@
 package com.example.aplusapp.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,12 +11,10 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.anychart.editor.Editor;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.aplusapp.R;
-import com.example.aplusapp.db.repos.UserRepository;
 import com.example.aplusapp.model.RequestBody.AuthBody;
-import com.example.aplusapp.model.RequestBody.ForgotPasswordReq;
-import com.example.aplusapp.model.Users;
 import com.example.aplusapp.model.responce.AuthData;
 import com.example.aplusapp.network.APIClient;
 import com.example.aplusapp.network.NetworkAccess;
@@ -139,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
                             return;
                         }
                         //saving data to the database. separate from main thread !.
-                        new DbProcess(response.body()).execute();
+                        //new DbProcess(response.body()).execute();
 
                         //set to cache
                         try {
@@ -150,7 +144,16 @@ public class MainActivity extends AppCompatActivity {
                             }else{
                                 editor.putBoolean(SharedConst.APP_CREDENTIAL_SAVED, false);
                             }
+
+                            //set JWT token
+                            editor.putString(SharedConst.SETTINGS_JWT, CryptoHelper.encrypt(response.body().getToken()));
+
                             editor.apply();
+
+                            startActivity(new Intent(MainActivity.this, HomeActivity.class));
+
+                            //hide progress bar
+                            circularProgressBarDialog.dismiss();
 
                         } catch (Exception e) {
                             circularProgressBarDialog.dismiss();
@@ -191,41 +194,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public class DbProcess extends AsyncTask<Void,Void,Void>{
-
-        private AuthData _data;
-
-        public DbProcess(AuthData data){
-            super();
-            _data = data;
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            Log.i("dbAccess", "hit the async task");
-            UserRepository repo = new UserRepository(getApplication());
-
-            Users user = repo.findByID(_data.getUserID());
-
-            Users authUser = new Users(_data.getUserID(), _data.getUserName(), _data.getRoleID(), _data.getEmail(), txtPassword.getText().toString(), _data.getOrganizationID(), true );
-
-            if(user == null){
-                Log.i("dbAccess", "hit as  the new user");
-                repo.insertUser(authUser);
-            }else{
-                Log.i("dbAccess", "hit as  the update user");
-                repo.updateUser(authUser);
-            }
-
-
-            startActivity(new Intent(MainActivity.this, HomeActivity.class));
-
-            //hide progress bar
-            circularProgressBarDialog.dismiss();
-
-            return null;
-        }
-
-    }
 
 }

@@ -104,5 +104,10 @@
     <string name="btnDelete">DELETE</string>
     <string name="btnComplete">Complete</string>
     <string name="app_password_reset">RESET</string>
+    <string name="app_chnage_user_title">Change User Information</string>
+    <string name="app_phone">Phone</string>
+    <string name="app_confirm_password">Confirm-Password</string>
+    <string name="app_save_changes">Save changes</string>
+    <string name="add">ADD</string>
 
 </resources>
