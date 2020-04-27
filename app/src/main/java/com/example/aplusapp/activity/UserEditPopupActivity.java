@@ -35,6 +35,8 @@ import com.example.aplusapp.network.UserApiService;
 import com.example.aplusapp.service.CommonServices;
 import com.example.aplusapp.utils.SharedConst;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -119,6 +121,20 @@ public class UserEditPopupActivity extends DialogFragment {
                 }
                 UpdateUpdateModel data;
                 data = new UpdateUpdateModel(currentUserEmail, txtPassword.getText().toString(), spinner.getSelectedItem().toString(), txtPhone.getText().toString());
+
+                Call<JSONObject> call = apiService.updateUser(data);
+
+                call.enqueue(new Callback<JSONObject>() {
+                    @Override
+                    public void onResponse(Call<JSONObject> call, Response<JSONObject> response) {
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<JSONObject> call, Throwable t) {
+
+                    }
+                });
 
             }
         });

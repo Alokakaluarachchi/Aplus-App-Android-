@@ -3,6 +3,7 @@ package com.example.aplusapp.network;
 import com.example.aplusapp.model.RequestBody.AuthBody;
 import com.example.aplusapp.model.RequestBody.ForgotPasswordReq;
 import com.example.aplusapp.model.RequestBody.RequestNewAccount;
+import com.example.aplusapp.model.RequestBody.UpdateUpdateModel;
 import com.example.aplusapp.model.responce.AuthData;
 import com.example.aplusapp.model.responce.RoleReponce;
 import com.example.aplusapp.model.responce.StatusResponce;
@@ -37,6 +38,9 @@ public interface UserApiService {
 
     @POST("users/getAllUsers")
     Call<List<UserListResult>> getAllUsers(@Header("Authorization") String token, @Body JSONObject role);
+
+    @POST("users/resentUserPasswordMobile")
+    Call<JSONObject> updateUser(@Body UpdateUpdateModel data);
 
     @GET("users/forTest")
     Call<String> ApiTest();
