@@ -117,23 +117,6 @@ public class UserListActivity extends Fragment {
 
     }
 
-    public class LoadUserList extends AsyncTask<Void,Void,Void> {
-
-        String jwtToken;
-
-        public LoadUserList(String token){
-            jwtToken = token;
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-
-
-            return null;
-
-        }
-
-    }
 
     private void LoadUserList(String jwtToken){
 

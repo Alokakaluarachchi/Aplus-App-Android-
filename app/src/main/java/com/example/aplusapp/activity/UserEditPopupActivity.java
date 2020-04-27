@@ -3,6 +3,7 @@ package com.example.aplusapp.activity;
 import android.app.Dialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,17 +26,20 @@ import androidx.lifecycle.Observer;
 import com.example.aplusapp.R;
 import com.example.aplusapp.db.repos.RoleRepository;
 import com.example.aplusapp.db.repos.UserRepository;
+import com.example.aplusapp.model.RequestBody.UpdateUpdateModel;
 import com.example.aplusapp.model.Role;
 import com.example.aplusapp.model.Users;
 import com.example.aplusapp.model.responce.RoleReponce;
 import com.example.aplusapp.network.APIClient;
 import com.example.aplusapp.network.UserApiService;
+import com.example.aplusapp.service.CommonServices;
 import com.example.aplusapp.utils.SharedConst;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import es.dmoral.toasty.Toasty;
 import fr.ganfra.materialspinner.MaterialSpinner;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -49,12 +54,15 @@ public class UserEditPopupActivity extends DialogFragment {
     private EditText txtUserName, txtEmail, txtPhone, txtPassword, txtConfirmPassword;
     private TextView btnClose;
     MaterialSpinner spinner;
+    private Button btnChnage;
 
     private List<String> ITEMS = new ArrayList<>();
 
     private Retrofit retrofit;
     private UserApiService apiService;
     ArrayAdapter<String> adapter;
+
+    private String currentUserEmail = null;
 
     Bundle mArgs;
 
@@ -64,11 +72,14 @@ public class UserEditPopupActivity extends DialogFragment {
         backgroundLayout = view.findViewById(R.id.backGround_ediUser);
 
         txtUserName = view.findViewById(R.id.txtUsername);
+        txtUserName.setEnabled(false);
         txtEmail = view.findViewById(R.id.txtEmail);
+        txtEmail.setEnabled(false);
         txtPhone = view.findViewById(R.id.txtPhone);
         txtPassword = view.findViewById(R.id.txtPassword);
         txtConfirmPassword = view.findViewById(R.id.txtConfirmPassword);
         spinner = (MaterialSpinner) view.findViewById(R.id.spinnerRole);
+        btnChnage = view.findViewById(R.id.btnRequest);
 
         btnClose = view.findViewById(R.id.btnClose);
 
@@ -96,6 +107,19 @@ public class UserEditPopupActivity extends DialogFragment {
             @Override
             public void onClick(View v) {
                 dismiss();
+            }
+        });
+
+        btnChnage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //validation
+                if(!validateData()){
+                    return;
+                }
+                UpdateUpdateModel data;
+                data = new UpdateUpdateModel(currentUserEmail, txtPassword.getText().toString(), spinner.getSelectedItem().toString(), txtPhone.getText().toString());
+
             }
         });
     }
@@ -127,6 +151,30 @@ public class UserEditPopupActivity extends DialogFragment {
 
 
         return dialog;
+    }
+
+    private boolean validateData(){
+
+
+
+        if(TextUtils.isEmpty(txtPassword.getText())){
+            return true;
+        }else{
+            float rate = CommonServices.getPasswordRating(txtPassword.getText().toString());
+            if(rate < 4){
+                Toasty.warning(getActivity(), "More complex password is the more secure it will be", Toast.LENGTH_SHORT, true).show();
+                txtPassword.setError("Password too weak");
+                return false;
+            }
+
+            if(!txtPassword.getText().toString().equals(txtConfirmPassword.getText().toString())){
+                Toasty.error(getActivity(), "Password is not matched", Toast.LENGTH_SHORT, true).show();
+                txtPassword.setError("Password do not match");
+                txtConfirmPassword.setError("Password do not match");
+                return false;
+            }
+        }
+        return true;
     }
 
 
@@ -213,6 +261,7 @@ public class UserEditPopupActivity extends DialogFragment {
                     try{
 
                         txtUserName.setText(user.getUserName());
+                        currentUserEmail = user.getUserName();
                         txtEmail.setText(user.getEmail());
                         txtPhone.setText(user.getPhone());
                         spinner.setSelection(adapter.getPosition(user.getRoleName()));
