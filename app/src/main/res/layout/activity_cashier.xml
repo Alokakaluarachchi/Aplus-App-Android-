@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorBackgroundHighlightWhite"
             android:hint="Item ID"
-            android:inputType="text" />
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
