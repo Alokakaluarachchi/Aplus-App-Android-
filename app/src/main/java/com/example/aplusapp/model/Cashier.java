@@ -17,21 +17,18 @@ public class Cashier {
     @NonNull
     private int Qty;
 
-    @NonNull
-    private String Price;
-
     private boolean IsActive;
 
-    public Cashier(@NonNull int ID, @NonNull String Items, @NonNull int Qty, @NonNull String Price, boolean IsActive) {
+    public Cashier(@NonNull int ID,@NonNull String Items,@NonNull int Qty, boolean IsActive) {
 
         this.ID = ID;
         this.Items = Items;
         this.Qty = Qty;
-        this.Price = Price;
         this.IsActive = IsActive;
 
     }
 
+    @NonNull
     public int getID() {
         return ID;
     }
@@ -44,11 +41,6 @@ public class Cashier {
     @NonNull
     public int getQty() {
         return Qty;
-    }
-
-    @NonNull
-    public String getPrice() {
-        return Price;
     }
 
     public boolean getIsActive() {

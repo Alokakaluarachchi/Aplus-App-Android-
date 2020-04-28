@@ -16,12 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.UserListActivity"/>
+        <activity android:name=".OrderManage"></activity>
+        <activity android:name=".activity.UserListActivity" />
         <activity android:name=".activity.CategoryActivity" />
         <activity android:name=".activity.UserProfileActivity" />
         <activity android:name=".activity.ReqAccountActivity" />
-        <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

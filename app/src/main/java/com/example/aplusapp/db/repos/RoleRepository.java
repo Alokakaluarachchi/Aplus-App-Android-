@@ -51,6 +51,11 @@ public class RoleRepository {
         return role;
     }
 
+    public Role findByRole(String name){
+        Role role = roleDao.findByRole(name);
+        return role;
+    }
+
     public List<Role> loadAll(){
         return roleDao.loadAll();
     }
