@@ -1,6 +1,8 @@
 package com.example.aplusapp.activity;
 
 import android.app.Dialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -33,6 +35,7 @@ import com.example.aplusapp.model.responce.RoleReponce;
 import com.example.aplusapp.network.APIClient;
 import com.example.aplusapp.network.UserApiService;
 import com.example.aplusapp.service.CommonServices;
+import com.example.aplusapp.service.CryptoHelper;
 import com.example.aplusapp.utils.SharedConst;
 
 import org.json.JSONObject;
@@ -64,6 +67,8 @@ public class UserEditPopupActivity extends DialogFragment {
     private UserApiService apiService;
     ArrayAdapter<String> adapter;
 
+    private SharedPreferences pref;
+
     private String currentUserEmail = null;
 
     Bundle mArgs;
@@ -87,6 +92,8 @@ public class UserEditPopupActivity extends DialogFragment {
 
         retrofit = APIClient.getClient(); //initialize Retrofit Client
         apiService = retrofit.create(UserApiService.class); //Register the Api Service
+
+        pref = getActivity().getApplicationContext().getSharedPreferences(SharedConst.APPLICATION_SHARED_PREF, 0); // 0 - for private mode
 
         circularProgressBarDialog = new CircularProgressBarDialog();
 
@@ -122,19 +129,57 @@ public class UserEditPopupActivity extends DialogFragment {
                 UpdateUpdateModel data;
                 data = new UpdateUpdateModel(currentUserEmail, txtPassword.getText().toString(), spinner.getSelectedItem().toString(), txtPhone.getText().toString());
 
-                Call<JSONObject> call = apiService.updateUser(data);
+                String token = pref.getString(SharedConst.SETTINGS_JWT, null);
 
-                call.enqueue(new Callback<JSONObject>() {
+                if(token == null){
+                    Toasty.warning(getActivity(), "Session Expired ! Please log-in again", Toast.LENGTH_SHORT, true).show();
+                    startActivity(new Intent(getActivity(), MainActivity.class));
+                }
+
+                try {
+                    token = CryptoHelper.decrypt(token);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    startActivity(new Intent(getActivity(), ErrorActivity.class));
+                }
+
+                String finalToken = token;
+                new Thread(new Runnable() {
                     @Override
-                    public void onResponse(Call<JSONObject> call, Response<JSONObject> response) {
+                    public void run() {
+                        RoleRepository roleRepository = new RoleRepository(getActivity().getApplication());
 
+                        Role roleDetails = roleRepository.findByRole(spinner.getSelectedItem().toString());
+                        data.roleID = Integer.toString(roleDetails.getID());
+
+                        Call<JSONObject> call = apiService.updateUser("Bearer "+ finalToken, data);
+                        //show progress bar
+                        circularProgressBarDialog.show(Objects.requireNonNull(getActivity()).getSupportFragmentManager(), null);
+
+                        call.enqueue(new Callback<JSONObject>() {
+                            @Override
+                            public void onResponse(Call<JSONObject> call, Response<JSONObject> response) {
+
+                                if(response.code() == 500){
+                                    Toast.makeText(getActivity(), "Something went wrong !. Try again.", Toast.LENGTH_SHORT);
+                                    circularProgressBarDialog.dismiss();
+                                    return;
+                                }
+
+                                circularProgressBarDialog.dismiss();
+                                dismiss();
+
+                            }
+
+                            @Override
+                            public void onFailure(Call<JSONObject> call, Throwable t) {
+                                Toast.makeText(getActivity(), t.getLocalizedMessage(), Toast.LENGTH_SHORT);
+                                circularProgressBarDialog.dismiss();
+                            }
+                        });
                     }
+                }).start();
 
-                    @Override
-                    public void onFailure(Call<JSONObject> call, Throwable t) {
-
-                    }
-                });
 
             }
         });

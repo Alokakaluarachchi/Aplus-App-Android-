@@ -39,8 +39,8 @@ public interface UserApiService {
     @POST("users/getAllUsers")
     Call<List<UserListResult>> getAllUsers(@Header("Authorization") String token, @Body JSONObject role);
 
-    @POST("users/resentUserPasswordMobile")
-    Call<JSONObject> updateUser(@Body UpdateUpdateModel data);
+    @POST("users/updateUser")
+    Call<JSONObject> updateUser(@Header("Authorization") String token, @Body UpdateUpdateModel data);
 
     @GET("users/forTest")
     Call<String> ApiTest();
