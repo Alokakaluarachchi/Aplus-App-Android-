@@ -22,10 +22,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 
 import com.example.aplusapp.R;
+import com.example.aplusapp.adepter.CallBackListener;
 import com.example.aplusapp.db.repos.RoleRepository;
 import com.example.aplusapp.db.repos.UserRepository;
 import com.example.aplusapp.model.RequestBody.UpdateUpdateModel;
@@ -73,6 +76,17 @@ public class UserEditPopupActivity extends DialogFragment {
 
     Bundle mArgs;
 
+    private CallBackListener callBackListener;
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Fragment fm = getParentFragmentManager().getFragments()
+                .get(getParentFragmentManager().getFragments().size() - 2);
+        if (fm instanceof CallBackListener)
+            callBackListener = (CallBackListener) fm;
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -115,6 +129,8 @@ public class UserEditPopupActivity extends DialogFragment {
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(callBackListener != null)
+                    callBackListener.onDismiss();
                 dismiss();
             }
         });
@@ -167,6 +183,8 @@ public class UserEditPopupActivity extends DialogFragment {
                                 }
 
                                 circularProgressBarDialog.dismiss();
+                                if(callBackListener != null)
+                                    callBackListener.onDismiss();
                                 dismiss();
 
                             }
@@ -325,7 +343,7 @@ public class UserEditPopupActivity extends DialogFragment {
                         currentUserEmail = user.getUserName();
                         txtEmail.setText(user.getEmail());
                         txtPhone.setText(user.getPhone());
-                        spinner.setSelection(adapter.getPosition(user.getRoleName()));
+                        spinner.setSelection(adapter.getPosition(user.getRoleName()) + 1);
                         circularProgressBarDialog.dismiss();
                     }catch (Exception ex){
                         ex.printStackTrace();
