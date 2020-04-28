@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.aplusapp.R;
+import com.example.aplusapp.adepter.CallBackListener;
 import com.example.aplusapp.adepter.ClickListener;
 import com.example.aplusapp.adepter.UserAdapter;
 import com.example.aplusapp.db.repos.UserRepository;
@@ -44,7 +45,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class UserListActivity extends Fragment {
+public class UserListActivity extends Fragment implements CallBackListener {
 
     private List<User> userList = new ArrayList<>();
     private RecyclerView recyclerView;
@@ -57,6 +58,7 @@ public class UserListActivity extends Fragment {
     private SharedPreferences pref;
 
     private CircularProgressBarDialog circularProgressBarDialog;
+    private String token;
 
     @Nullable
     @Override
@@ -73,7 +75,9 @@ public class UserListActivity extends Fragment {
 
         pref = getActivity().getApplicationContext().getSharedPreferences(SharedConst.APPLICATION_SHARED_PREF, 0); // 0 - for private mode
 
-        String token = pref.getString(SharedConst.SETTINGS_JWT, null);
+
+
+        token = pref.getString(SharedConst.SETTINGS_JWT, null);
         if(token == null){
             Toasty.warning(getActivity(), "Session Expired ! Please log-in again", Toast.LENGTH_SHORT, true).show();
             startActivity(new Intent(getActivity(), MainActivity.class));
@@ -117,23 +121,6 @@ public class UserListActivity extends Fragment {
 
     }
 
-    public class LoadUserList extends AsyncTask<Void,Void,Void> {
-
-        String jwtToken;
-
-        public LoadUserList(String token){
-            jwtToken = token;
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-
-
-            return null;
-
-        }
-
-    }
 
     private void LoadUserList(String jwtToken){
 
@@ -191,6 +178,11 @@ public class UserListActivity extends Fragment {
             circularProgressBarDialog.dismiss();
         }
 
+    }
+
+    @Override
+    public void onDismiss() {
+        LoadUserList(token);
     }
 
     public class DbProcess extends AsyncTask<Void,Void,Void>{

@@ -70,8 +70,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginRight="20dp"
-                android:hint="@string/app_username_hint"
-                app:endIconMode="clear_text">
+                android:hint="@string/app_username_hint">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtUsername"
@@ -87,8 +86,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                android:hint="@string/app_email"
-                app:endIconMode="clear_text">
+                android:hint="@string/app_email">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtEmail"

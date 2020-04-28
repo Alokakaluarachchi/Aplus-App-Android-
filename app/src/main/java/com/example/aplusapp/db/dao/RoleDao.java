@@ -28,6 +28,9 @@ public interface RoleDao {
     @Query("select * from role where DisplayName like :name Limit 1")
     Role findByName(String name);
 
+    @Query("select * from role where Role like :name Limit 1")
+    Role findByRole(String name);
+
     @Query("SELECT * FROM role ORDER BY Role asc")
     List<Role> loadAll();
 
