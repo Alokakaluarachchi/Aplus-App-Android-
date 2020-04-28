@@ -1,59 +1,59 @@
 package com.example.aplusapp.adepter;
 
-import android.icu.util.ValueIterator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.aplusapp.R;
+import com.example.aplusapp.model.Order;
+import com.example.aplusapp.model.OrderMod;
+import com.example.aplusapp.model.User;
 
-public class OrderAdapter extends RecyclerView.Adapter {
+import java.util.List;
 
+public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrdrViewHolder>{
+
+    private List<OrderMod> orderList;
+
+    public class OrdrViewHolder extends RecyclerView.ViewHolder {
+        public TextView OrderId, OrderName, OrderQty;
+
+        public OrdrViewHolder(View view) {
+            super(view);
+            OrderId = (TextView) view.findViewById(R.id.OrdrID);
+            OrderName = (TextView) view.findViewById(R.id.OrdrName);
+            OrderQty = (TextView) view.findViewById(R.id.OrdrQty);
+        }
+
+    }
+
+    public OrderAdapter(List<OrderMod> _orderList) {
+        orderList = _orderList;
+    }
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public OrdrViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.activity_order_manage, parent, false);
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_cashier, parent, false);
-        return new ListViewHolder(view);
+        return new OrdrViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-
-     //   ((ListViewHolder) holder).blindView(position);
-
+    public void onBindViewHolder(@NonNull OrdrViewHolder holder, int position) {
+        OrderMod orderMod = orderList.get(position);
+        holder.OrderId.setText(Integer.toString(orderMod.getOid()));
+        holder.OrderName.setText(orderMod.getOitem());
+        holder.OrderQty.setText(Integer.toString(orderMod.getOqty()));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
-    }
-
-
-    private class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-
-    private EditText inputItem_ID;
-    private EditText inputItem_Name;
-    private EditText input_Qty;
-
-
-     public ListViewHolder(View itemView){
-
-        super(itemView);
-        inputItem_ID = (EditText) itemView.findViewById(R.id.Text_input_Item_ID);
-        inputItem_Name = (EditText) itemView.findViewById(R.id.Text_input_Item_Name);
-        input_Qty = (EditText) itemView.findViewById(R.id.Text_input_Qty);
-        itemView.setOnClickListener(this);
-
-     }
-
-     public void onClick(View view){
-
-     }
+        return orderList.size();
     }
 }
