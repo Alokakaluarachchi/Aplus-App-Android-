@@ -18,6 +18,9 @@ public interface UserDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertUser(Users user);
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insertUser(List<Users> user);
+
     @Update
     void updateUser(Users user);
 

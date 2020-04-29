@@ -7,6 +7,15 @@
     android:layout_width="match_parent"
     tools:context=".activity.OrderActivity">
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
 
     <TextView
         android:id="@+id/Ordr"
@@ -28,190 +37,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TableLayout
-        android:id="@+id/OdrTablelayot"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="71dp"
-        android:background="@color/white_with_alpha"
-        app:layout_constraintBottom_toTopOf="@+id/btnOrderComplete"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Ordr">
 
-        <!-- first row.-->
-        <TableRow
+        <!-- Recycler view -->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:background="@color/white_with_alpha"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-            <TextView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="ID"
-                android:textSize="10pt"
-                android:textStyle="bold"></TextView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginLeft="2dp"
-                android:text="Items"
-                android:textSize="10pt"
-                android:textStyle="bold"></TextView>
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginLeft="20dp"
-                android:text="Quantity"
-                android:textSize="10pt"
-                android:textStyle="bold"></TextView>
-
-        </TableRow>
-        <!-- End of first raw.-->
-
-        <!-- second row.-->
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/ItemId1"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="I001"
-                android:textSize="8pt"></TextView>
-
-            <TextView
-                android:id="@+id/iName1"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginLeft="8dp"
-                android:text="Bolts"
-                android:textSize="8pt"></TextView>
-
-            <TextView
-                android:id="@+id/Qty1"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginLeft="40dp"
-                android:text="50"
-                android:textSize="8pt"
-                tools:ignore="InvalidId"></TextView>
-
-        </TableRow>
-
-        <!-- End of second raw.-->
-
-        <!-- Third raw.-->
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/ItemId2"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="I002"
-                android:textSize="8pt"></TextView>
-
-            <TextView
-                android:id="@+id/iName2"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginLeft="8dp"
-                android:text="Nuts"
-                android:textSize="8pt"></TextView>
-
-            <TextView
-                android:id="@+id/Qty2"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginLeft="40dp"
-                android:text="20"
-                android:textSize="8pt"
-                tools:ignore="InvalidId"></TextView>
-        </TableRow>
-        <!-- End of Third raw.-->
-
-        <!-- Fourth raw.-->
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/ItemId3"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="I003"
-                android:textSize="8pt"></TextView>
-
-            <TextView
-                android:id="@+id/iName3"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginLeft="8dp"
-                android:text="Screws"
-                android:textSize="8pt"></TextView>
-
-            <TextView
-                android:id="@+id/Qty3"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginLeft="40dp"
-                android:text="15"
-                android:textSize="8pt"
-                tools:ignore="InvalidId"></TextView>
-        </TableRow>
-
-        <!--End of Fourth row -->
-
-        <!-- Fifth row -->
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/ItemId4"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="I004"
-                android:textSize="8pt"></TextView>
-
-            <TextView
-                android:id="@+id/iName4"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginLeft="8dp"
-                android:text="Hinches"
-                android:textSize="8pt"></TextView>
-
-            <TextView
-                android:id="@+id/Qty4"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginLeft="40dp"
-                android:text="40"
-                android:textSize="8pt"
-                tools:ignore="InvalidId"></TextView>
-        </TableRow>
-
-        <!-- End of Fifth row -->
-    </TableLayout>
 
     <Button
-        android:id="@+id/btnOrderComplete"
+        android:id="@+id/btnOrderUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="201dp"
-        android:text="@string/btnComplete"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="80dp"
+        android:text="UPDATE"
         android:textColor="@color/DarkRed"
         android:typeface="serif"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -221,15 +71,15 @@
         android:id="@+id/btnOrderDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="82dp"
-        android:layout_marginEnd="126dp"
-        android:layout_marginBottom="201dp"
+        android:layout_marginStart="86dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginBottom="80dp"
         android:text="@string/btnDelete"
         android:textColor="@color/DarkRed"
         android:typeface="serif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnOrderComplete" />
+        app:layout_constraintStart_toEndOf="@+id/btnOrderUpdate" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

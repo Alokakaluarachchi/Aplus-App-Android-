@@ -27,15 +27,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true">
-        
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/Text_input_Item_ID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Item ID"
-            android:inputType="text"
             android:background="@color/colorBackgroundHighlightWhite"
-            />
+            android:hint="Item ID"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
