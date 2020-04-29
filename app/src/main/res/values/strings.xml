@@ -67,6 +67,7 @@
     <!--update Inventory-->
     <string name="product_code_00001">Product code :- 00001</string>
     <string name="update_inventory">Update</string>
+    <string name="inventory_list">Inventory List</string>
     <!--end-->
 
     <!--delete Inventory-->
