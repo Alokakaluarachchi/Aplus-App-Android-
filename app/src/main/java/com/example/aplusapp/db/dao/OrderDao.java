@@ -9,17 +9,25 @@ import androidx.room.Update;
 
 import com.example.aplusapp.model.Order;
 
+import java.util.List;
+
 @Dao
 public interface OrderDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertOrder(Order order);
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insertOrder(List<Order> order);
+
     @Update
     void updateOrder(Order order);
 
     @Delete
     void deleteOrder(Order order);
+
+    @Query("SELECT * FROM `order` ORDER BY ID ")
+    List<Order> getOrder();
 
     @Query("delete from `order`")
     void removeAll();
