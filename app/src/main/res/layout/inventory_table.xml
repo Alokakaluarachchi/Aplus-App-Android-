@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/inventory"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/tableLayout1"
@@ -11,7 +24,18 @@
 
     android:stretchColumns="*"
     tools:context=".MainActivity">
-
+<TableRow
+    android:id="@+id/tableRow"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="">
+    <Button
+        android:id="@+id/clientadd"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:text="@string/add"
+        android:background="@drawable/shape_button2"/>
+</TableRow>
     <TableRow
         android:id="@+id/tableRow4"
         android:layout_width="match_parent"
@@ -31,6 +55,7 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:typeface="serif" />
+
     </TableRow>
     <TableRow
         android:id="@+id/tableRow11"
@@ -129,7 +154,7 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:background="@drawable/shape_button1"
-            android:text="@string/update"/>
+            android:text="@string/update" />
 
         <Button
             android:id="@+id/clientimain1"
@@ -233,13 +258,5 @@
             android:text="@string/delete" />
     </TableRow>
 
-
-
-
-
-
-
-
-
-
 </TableLayout>
+</LinearLayout>

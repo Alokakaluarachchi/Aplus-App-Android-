@@ -48,6 +48,7 @@
 
 
     <string name="delete">delete</string>
+    <string name="add">+</string>
     <string name="monthly_purchases">Monthly Purchases</string>
 
     <!-- end -->
@@ -65,7 +66,8 @@
 
     <!--update Inventory-->
     <string name="product_code_00001">Product code :- 00001</string>
-    <string name="update_inventory">Update Inventory</string>
+    <string name="update_inventory">Update</string>
+    <string name="inventory_list">Inventory List</string>
     <!--end-->
 
     <!--delete Inventory-->
@@ -79,7 +81,7 @@
     <string name="update">Update</string>
     <string name="_002">002</string>
     <string name="_12">$12</string>
-    <string name="_001">001</string>
+    <string name="_001">1</string>
     <string name="in1">IN1</string>
 
     <string name="in2">IN2</string>
