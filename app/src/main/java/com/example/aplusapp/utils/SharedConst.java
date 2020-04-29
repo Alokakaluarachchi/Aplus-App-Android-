@@ -8,6 +8,7 @@ public class SharedConst {
     public static final String APP_USERNAME = "APP_USERNAME";
     public static final String APP_PASSWORD = "APP_PASSWORD";
     public static final String APP_USERID = "APP_USERID";
+    public static final String APP_ROLEID = "APP_USERID";
 
     public static final String SETTINGS_ID = "ID";
 

@@ -146,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
                             }
 
                             editor.putInt(SharedConst.APP_USERID, response.body().getUserID());
+                            editor.putInt(SharedConst.APP_ROLEID, response.body().getRoleID());
 
                             //set JWT token
                             editor.putString(SharedConst.SETTINGS_JWT, CryptoHelper.encrypt(response.body().getToken()));

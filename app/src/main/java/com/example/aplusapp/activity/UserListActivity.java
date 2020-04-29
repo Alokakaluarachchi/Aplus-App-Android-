@@ -125,7 +125,7 @@ public class UserListActivity extends Fragment implements CallBackListener {
         try{
             JSONObject jObj = new JSONObject();
             try {
-                jObj.put("roleId",1);
+                jObj.put("roleId",pref.getInt(SharedConst.APP_ROLEID, 0));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
