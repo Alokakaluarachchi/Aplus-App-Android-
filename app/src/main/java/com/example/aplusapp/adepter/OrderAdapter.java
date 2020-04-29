@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,6 +34,26 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrdrViewHold
 
             BtnOrdrEdit = (MaterialButton) view.findViewById(R.id.buttonOrderEdit);
             BtnOrdrDelete = (MaterialButton) view.findViewById(R.id.buttonOrderDelete);
+        }
+
+        public void onClick(View v){
+
+            BtnOrdrEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Toast.makeText(v.getContext(),"Order is Edited",Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            BtnOrdrDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Toast.makeText(v.getContext(),"Order is Deleted",Toast.LENGTH_SHORT).show();
+                }
+            });
+
         }
 
     }

@@ -97,7 +97,7 @@ public class OrderActivity extends Fragment{
         ordermod = new OrderMod(002, "Plates", 10);
         orderList.add(ordermod);
 
-        ordermod = new OrderMod(003, "Cups", 5);
+        ordermod = new OrderMod(003, "Cups", 15);
         orderList.add(ordermod);
 
         ordermod = new OrderMod(004, "Spoons", 10);
