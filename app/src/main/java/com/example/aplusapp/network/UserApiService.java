@@ -39,6 +39,9 @@ public interface UserApiService {
     @POST("users/getAllUsers")
     Call<List<UserListResult>> getAllUsers(@Header("Authorization") String token, @Body JSONObject role);
 
+    @POST("users/removeUser")
+    Call<JSONObject> removeUser(@Header("Authorization") String token, @Body JSONObject data);
+
     @POST("users/updateUser")
     Call<JSONObject> updateUser(@Header("Authorization") String token, @Body UpdateUpdateModel data);
 
