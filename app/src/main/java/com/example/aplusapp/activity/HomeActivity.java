@@ -3,6 +3,7 @@ package com.example.aplusapp.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -25,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
         spaceNavigationView.addSpaceItem(new SpaceItem("", R.drawable.ic_notifications_black_24dp));
         spaceNavigationView.addSpaceItem(new SpaceItem("", R.drawable.ic_equalizer_black_24dp));
         spaceNavigationView.addSpaceItem(new SpaceItem("", R.drawable.ic_account_circle_black_24dp));
-        spaceNavigationView.addSpaceItem(new SpaceItem("", R.drawable.ic_settings_black_24dp));
+        spaceNavigationView.addSpaceItem(new SpaceItem("", R.drawable.ic_open_in_browser_black_24dp));
         spaceNavigationView.setCentreButtonSelectable(true);
         spaceNavigationView.setCentreButtonSelected();
 
@@ -46,6 +47,8 @@ public class HomeActivity extends AppCompatActivity {
 
                 if(itemIndex == 2){
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new UserProfileActivity()).commit();
+                }else if(itemIndex == 3){
+                    startActivity(new Intent(HomeActivity.this, MainActivity.class));
                 }
 
             }
