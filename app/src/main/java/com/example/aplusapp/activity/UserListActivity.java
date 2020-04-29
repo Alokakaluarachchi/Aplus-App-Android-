@@ -75,15 +75,20 @@ public class UserListActivity extends Fragment implements CallBackListener {
 
         pref = getActivity().getApplicationContext().getSharedPreferences(SharedConst.APPLICATION_SHARED_PREF, 0); // 0 - for private mode
 
-
-
         token = pref.getString(SharedConst.SETTINGS_JWT, null);
+        try {
+            token = CryptoHelper.decrypt(token);
+        } catch (Exception e) {
+            Toast.makeText(getActivity(), e.getLocalizedMessage(),
+                    Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
         if(token == null){
             Toasty.warning(getActivity(), "Session Expired ! Please log-in again", Toast.LENGTH_SHORT, true).show();
             startActivity(new Intent(getActivity(), MainActivity.class));
         }
 
-        mAdapter = new UserAdapter(userList, new ClickListener() {
+        mAdapter = new UserAdapter(userList,getActivity().getApplication(), token, getChildFragmentManager(), UserListActivity.this , new ClickListener() {
             @Override
             public void onPositionClicked(int position) {
 
@@ -100,14 +105,7 @@ public class UserListActivity extends Fragment implements CallBackListener {
         recyclerView.addItemDecoration(new DividerItemDecoration(container.getContext(), LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(mAdapter);
 
-        try {
-            token = CryptoHelper.decrypt(token);
-            LoadUserList(token);
-        } catch (Exception e) {
-            Toast.makeText(getActivity(), e.getLocalizedMessage(),
-                    Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-        }
+        LoadUserList(token);
 
 
         btnReqAccount.setOnClickListener(new View.OnClickListener() {
@@ -122,7 +120,7 @@ public class UserListActivity extends Fragment implements CallBackListener {
     }
 
 
-    private void LoadUserList(String jwtToken){
+    public void LoadUserList(String jwtToken){
 
         try{
             JSONObject jObj = new JSONObject();
