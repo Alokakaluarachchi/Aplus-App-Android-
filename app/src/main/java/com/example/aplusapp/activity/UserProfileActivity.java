@@ -102,6 +102,7 @@ public class UserProfileActivity extends Fragment {
                     txtRole.setText(user.getRoleName());
                     txtEmail.setText(user.getEmail());
                     txtContact.setText(user.getPhone());
+                    circularProgressBarDialog.dismiss();
                 }
             });
 
