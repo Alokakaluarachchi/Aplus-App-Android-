@@ -17,11 +17,14 @@ import java.util.List;
 public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.MyViewHolder>{
     private List<Inventory> inventoryList;
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView inventoryName , inventoryId;
+        public TextView inventoryName , inventoryId, inventoryQty, inventoryPrice;
         public MyViewHolder(@NonNull View view) {
             super(view);
             inventoryName = (TextView) view.findViewById(R.id.inventoryName);
             inventoryId = (TextView) view.findViewById(R.id.inventoryId);
+            inventoryQty=(TextView) view.findViewById(R.id.inventoryQty);
+            inventoryPrice=(TextView) view.findViewById(R.id.inventoryPrice);
+
             }
     }
 
@@ -41,7 +44,9 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.MyVi
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Inventory inventory = inventoryList.get(position);
         holder.inventoryName.setText(inventory.getInventoryName());
-        holder.inventoryId.setText(inventory.getID());
+        holder.inventoryId.setText(Integer.toString(inventory.getID()));
+        holder.inventoryQty.setText(Integer.toString(inventory.getQuantity()));
+        holder.inventoryPrice.setText(inventory.getSalesPrice());
 
     }
 

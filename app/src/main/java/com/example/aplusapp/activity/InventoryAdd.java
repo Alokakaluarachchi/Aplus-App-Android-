@@ -83,6 +83,8 @@ public class InventoryAdd extends Fragment {
 
                 Toast.makeText(getActivity(),"Successfully added",Toast.LENGTH_SHORT).show();
 
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new InventoryListActivity()).commit();
+
             }
 
             });
