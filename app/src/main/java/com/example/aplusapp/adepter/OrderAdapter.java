@@ -12,6 +12,7 @@ import com.example.aplusapp.R;
 import com.example.aplusapp.model.Order;
 import com.example.aplusapp.model.OrderMod;
 import com.example.aplusapp.model.User;
+import com.google.android.material.button.MaterialButton;
 
 import java.util.List;
 
@@ -20,13 +21,18 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrdrViewHold
     private List<OrderMod> orderList;
 
     public class OrdrViewHolder extends RecyclerView.ViewHolder {
+
         public TextView OrderId, OrderName, OrderQty;
+        public MaterialButton BtnOrdrEdit, BtnOrdrDelete;
 
         public OrdrViewHolder(View view) {
             super(view);
             OrderId = (TextView) view.findViewById(R.id.OrdrID);
             OrderName = (TextView) view.findViewById(R.id.OrdrName);
             OrderQty = (TextView) view.findViewById(R.id.OrdrQty);
+
+            BtnOrdrEdit = (MaterialButton) view.findViewById(R.id.buttonOrderEdit);
+            BtnOrdrDelete = (MaterialButton) view.findViewById(R.id.buttonOrderDelete);
         }
 
     }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:padding="10dp">
 
@@ -24,6 +24,24 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"/>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonOrderEdit"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_marginLeft="180dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/edit_black_24dp"
+        app:iconGravity="textStart"/>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonOrderDelete"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:icon="@drawable/ic_delete_black_24dp"
+        app:iconGravity="textStart"
+        app:iconTint="@color/Red" />
 
 </LinearLayout>
+
