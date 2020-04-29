@@ -145,6 +145,9 @@ public class MainActivity extends AppCompatActivity {
                                 editor.putBoolean(SharedConst.APP_CREDENTIAL_SAVED, false);
                             }
 
+                            editor.putInt(SharedConst.APP_USERID, response.body().getUserID());
+                            editor.putInt(SharedConst.APP_ROLEID, response.body().getRoleID());
+
                             //set JWT token
                             editor.putString(SharedConst.SETTINGS_JWT, CryptoHelper.encrypt(response.body().getToken()));
 

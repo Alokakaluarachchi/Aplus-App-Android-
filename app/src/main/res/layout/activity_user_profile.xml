@@ -22,6 +22,7 @@
             android:src="@drawable/sample_profile" />
 
         <TextView
+            android:id="@+id/txtFullName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_dummy_user_name"
@@ -30,6 +31,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/txtMainRole"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_dummy_user_role"
@@ -52,6 +54,7 @@
                 android:background="@drawable/background" />
 
             <TextView
+                android:id="@+id/btnBack"
                 style="@style/profileStyledBackButton"
                 android:text="@string/app_back_to_home" />
         </RelativeLayout>
@@ -97,6 +100,7 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/txtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -133,6 +137,7 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/txtBranch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -169,6 +174,7 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/txtRole"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -205,6 +211,7 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/txtContact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"

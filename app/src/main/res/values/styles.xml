@@ -70,6 +70,22 @@
         <item name="android:minWidth">250dp</item>
     </style>
 
+    <style name="inventoryStyledButton_add">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:background">@drawable/shape_button2</item>
+        <item name="android:paddingLeft">30dp</item>
+        <item name="android:paddingRight">30dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:drawable">@drawable/ic_add_circle_black_24dp</item>
+        <item name="android:minWidth">250dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/white_with_alpha</item>
+    </style>
+
     <style name="seperator_line">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">2dp</item>
@@ -90,6 +106,5 @@
         <item name="android:background">@color/gray_text_color</item>
         <item name="android:layout_marginTop">5dp</item>
     </style>
-
 
 </resources>
