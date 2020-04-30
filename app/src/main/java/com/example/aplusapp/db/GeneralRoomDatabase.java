@@ -22,8 +22,6 @@ import com.example.aplusapp.model.Users;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
-
 @Database(entities = {Users.class, Inventory.class, Order.class, Cashier.class, Customers.class, Role.class}, version = 1, exportSchema = false)
 public abstract class GeneralRoomDatabase extends RoomDatabase {
 

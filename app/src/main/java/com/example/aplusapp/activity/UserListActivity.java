@@ -197,9 +197,6 @@ public class UserListActivity extends Fragment implements CallBackListener {
             Log.i("dbAccess", "hit the async task");
             UserRepository repo = new UserRepository(getActivity().getApplication());
 
-            //remove all users
-            //repo.removeUser();
-
             List<Users> users = new ArrayList<>();
 
             Users user;
@@ -208,8 +205,9 @@ public class UserListActivity extends Fragment implements CallBackListener {
 
                 Users userExists = repo.findByID(result.getId());
 
-                user = new Users(result.getId(), result.getUserName(), result.getRoleID(), result.getRoleName(), result.getEmail(), null, result.getPhone(), 1,true,  result.getModifyAllowed());
-                //users.add(user);
+                user = new Users(result.getId(), result.getUserName(), result.getRoleID(),
+                        result.getRoleName(), result.getEmail(), null, result.getPhone(),
+                        1,true,  result.getModifyAllowed());
 
                 if(userExists == null){
                     repo.insertUser(user);
@@ -217,9 +215,6 @@ public class UserListActivity extends Fragment implements CallBackListener {
                     repo.updateUser(user);
                 }
             }
-            //add users to db
-            //repo.insertUsers(users);
-
             return null;
         }
 
