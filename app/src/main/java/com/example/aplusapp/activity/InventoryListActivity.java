@@ -53,7 +53,7 @@ public class InventoryListActivity extends Fragment {
         recyclerViewInventory = (RecyclerView) rootView.findViewById(R.id.recycler_view_inventory);
         btnInventory = rootView.findViewById(R.id.btnAddInventory);
 
-        iAdapter = new InventoryAdapter(inventoryList,getActivity().getApplication(), token, getChildFragmentManager(), InventoryListActivity.this , new ClickListener() {
+        iAdapter = new InventoryAdapter(inventoryList,getActivity().getApplication(), token, getChildFragmentManager(), InventoryListActivity.this, getContext() , new ClickListener() {
             @Override
             public void onPositionClicked(int position) {
 
