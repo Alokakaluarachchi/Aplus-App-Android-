@@ -16,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".OrderManage"></activity>
+        <activity android:name=".activity.EditOrder"></activity>
+        <activity android:name=".OrderManage" />
         <activity android:name=".activity.UserListActivity" />
         <activity android:name=".activity.CategoryActivity" />
         <activity android:name=".activity.UserProfileActivity" />
