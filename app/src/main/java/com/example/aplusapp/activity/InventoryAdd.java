@@ -21,8 +21,7 @@ import java.util.regex.Pattern;
 
 public class InventoryAdd extends Fragment {
 
-   // private static final Pattern ID_PATTERN = Pattern.compile("^" +".{4,}" + "$"+"(?=.*[A,T])"+"(?=\\S+$)" );
-    //private  static final Pattern NO_PATTERN = Pattern.compile("^" + )
+    private static final Pattern ID_PATTERN = Pattern.compile("^" +".{4,}" + "$"+"(?=.*[A,T])"+"(?=\\S+$)" );
     private Button add;
     private EditText iid;
     private EditText iname;
