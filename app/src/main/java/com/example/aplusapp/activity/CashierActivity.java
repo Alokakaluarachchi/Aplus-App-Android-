@@ -22,6 +22,7 @@ import com.example.aplusapp.db.repos.CashierRepository;
 import com.example.aplusapp.model.Cashier;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class CashierActivity extends Fragment {
@@ -75,6 +76,9 @@ public class CashierActivity extends Fragment {
                     Toast.makeText(getActivity(),"Order is Placed",Toast.LENGTH_SHORT).show();
 
 
+                 TextInputID.setText("");
+                 TextInputItemName.setText("");
+                 TextInputQty.setText("");
             }
         });
 
