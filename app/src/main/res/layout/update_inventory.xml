@@ -39,7 +39,6 @@
         android:hint="@string/product_name"
         android:textColorHint="@android:color/holo_blue_dark" />
 
-
     <EditText
 
         android:id="@+id/uqty"
@@ -52,7 +51,6 @@
         android:gravity="center_horizontal"
         android:hint="@string/quantity"
         android:textColorHint="@android:color/holo_blue_dark" />
-
 
     <EditText
 
@@ -80,18 +78,15 @@
         android:hint="@string/sales_price"
         android:textColorHint="@android:color/holo_blue_dark" />
 
-    <Button
+        <Button
         android:id="@+id/update"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="108dp"
-        android:layout_height="wrap_content"
+        android:layout_width="98dp"
+        android:layout_height="34dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/shape_button"
-        android:stateListAnimator="@null"
         android:text="@string/update_inventory"
-        android:textColor="@color/Black"
-        android:textStyle="bold" />
-
+        android:textColor="@color/Black" />
 
 </LinearLayout>

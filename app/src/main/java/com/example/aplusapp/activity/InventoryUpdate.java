@@ -43,6 +43,7 @@ public class InventoryUpdate extends Fragment {
                 String priceInput = usalesprice.getText().toString().trim();
                 String categoryInput = ucategory.getText().toString().trim();
 
+
                 if(idInput.isEmpty()){
                     uid.setError("Field can't be empty");
                     return ;
@@ -73,6 +74,7 @@ public class InventoryUpdate extends Fragment {
                 inventoryrepo.updateInventory(imodel);
 
                 Toast.makeText(getActivity(),"Successfully Updated",Toast.LENGTH_SHORT).show();
+                getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new InventoryListActivity()).commit();
 
             }
         });
