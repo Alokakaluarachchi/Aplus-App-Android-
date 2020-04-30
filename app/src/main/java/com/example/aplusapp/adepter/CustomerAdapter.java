@@ -1,12 +1,15 @@
 package com.example.aplusapp.adepter;
 
+import android.app.Application;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,15 +25,18 @@ import com.example.aplusapp.activity.HomeActivity;
 import com.example.aplusapp.activity.InventoryListActivity;
 import com.example.aplusapp.activity.MainActivity;
 import com.example.aplusapp.activity.UserListActivity;
+import com.example.aplusapp.db.repos.CustomerRepository;
 import com.example.aplusapp.model.Customers;
 import com.example.aplusapp.model.Inventory;
 import com.example.aplusapp.model.User;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.List;
 
 public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.MyViewHolder>{
     private List<Customers> customerList;
     private Context context;
+    private Application application;
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener {
         public TextView txtName,txtNIC;
@@ -59,6 +65,33 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.MyView
                 //FragmentTransaction transaction = manager.beginTransaction();
 
             }
+            else if (v.getId() == btnDelete.getId()){
+                new MaterialAlertDialogBuilder(v.getContext()).setTitle("Confirm for remove")
+                        .setMessage("Are you sure remove the customer("+txtName.getText().toString()+") ?")
+                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                CustomerRepository cusrep = new CustomerRepository(application);
+                                int id = Integer.parseInt(txtName.getTag().toString());
+                                cusrep.removeCustomer(id);
+
+                                notifyDataSetChanged();;
+
+
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }).show();
+
+            }else {
+                Toast.makeText(v.getContext(), "ROW Pressd = " + String.valueOf(getAdapterPosition()), Toast.LENGTH_SHORT).show();
+            }
+
         }
 
         @Override
