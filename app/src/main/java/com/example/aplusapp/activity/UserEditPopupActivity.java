@@ -143,12 +143,14 @@ public class UserEditPopupActivity extends DialogFragment {
                     return;
                 }
                 UpdateUpdateModel data;
-                data = new UpdateUpdateModel(currentUserEmail, txtPassword.getText().toString(), spinner.getSelectedItem().toString(), txtPhone.getText().toString());
+                data = new UpdateUpdateModel(currentUserEmail, txtPassword.getText().toString(),
+                        spinner.getSelectedItem().toString(), txtPhone.getText().toString());
 
                 String token = pref.getString(SharedConst.SETTINGS_JWT, null);
 
                 if(token == null){
-                    Toasty.warning(getActivity(), "Session Expired ! Please log-in again", Toast.LENGTH_SHORT, true).show();
+                    Toasty.warning(getActivity(), "Session Expired ! Please log-in again",
+                            Toast.LENGTH_SHORT, true).show();
                     startActivity(new Intent(getActivity(), MainActivity.class));
                 }
 

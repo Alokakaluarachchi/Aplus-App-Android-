@@ -53,7 +53,6 @@ public class AddInventory extends AppCompatActivity {
             return false;
         }
     }
-
     private boolean validateName(){
         String nameInput = iname.getText().toString().trim();
         if(nameInput.isEmpty()){

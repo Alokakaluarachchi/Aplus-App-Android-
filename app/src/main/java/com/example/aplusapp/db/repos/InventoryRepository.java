@@ -6,7 +6,9 @@ import androidx.lifecycle.LiveData;
 
 import com.example.aplusapp.db.GeneralRoomDatabase;
 import com.example.aplusapp.db.dao.InventoryDao;
+import com.example.aplusapp.model.Customers;
 import com.example.aplusapp.model.Inventory;
+import com.example.aplusapp.model.Users;
 
 import java.util.List;
 
@@ -42,5 +44,10 @@ public class InventoryRepository {
             inventoryDao.updateInventory(inventory);
         });
     }
+    public Inventory findByID(int id){
+        Inventory inventory = inventoryDao.findByID(id);
+        return inventory;
+    }
+
 
 }

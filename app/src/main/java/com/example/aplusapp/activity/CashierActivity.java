@@ -19,9 +19,12 @@ import androidx.fragment.app.Fragment;
 import com.example.aplusapp.R;
 import com.example.aplusapp.db.GeneralRoomDatabase;
 import com.example.aplusapp.db.repos.CashierRepository;
+import com.example.aplusapp.db.repos.OrderRepository;
 import com.example.aplusapp.model.Cashier;
+import com.example.aplusapp.model.Order;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class CashierActivity extends Fragment {
@@ -68,13 +71,16 @@ public class CashierActivity extends Fragment {
                     return;
                 }
 
-                CashierRepository cashrepo = new CashierRepository(getActivity().getApplication());
-                Cashier cmode = new Cashier(Integer.parseInt(IdInput),NameInput,Integer.parseInt(QtyInput),true);
-                cashrepo.insertCashier(cmode);
+                OrderRepository orderepo = new OrderRepository(getActivity().getApplication());
+                Order omode = new Order(Integer.parseInt(IdInput),NameInput,Integer.parseInt(QtyInput),true);
+                orderepo.insertOrder(omode);
 
                     Toast.makeText(getActivity(),"Order is Placed",Toast.LENGTH_SHORT).show();
 
 
+                 TextInputID.setText("");
+                 TextInputItemName.setText("");
+                 TextInputQty.setText("");
             }
         });
 

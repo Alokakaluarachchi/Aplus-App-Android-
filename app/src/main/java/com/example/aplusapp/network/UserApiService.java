@@ -5,6 +5,7 @@ import com.example.aplusapp.model.RequestBody.ForgotPasswordReq;
 import com.example.aplusapp.model.RequestBody.RequestNewAccount;
 import com.example.aplusapp.model.RequestBody.UpdateUpdateModel;
 import com.example.aplusapp.model.responce.AuthData;
+import com.example.aplusapp.model.responce.InventoryListResult;
 import com.example.aplusapp.model.responce.RoleReponce;
 import com.example.aplusapp.model.responce.StatusResponce;
 import com.example.aplusapp.model.responce.UserListResult;
@@ -47,4 +48,8 @@ public interface UserApiService {
 
     @GET("users/forTest")
     Call<String> ApiTest();
+
+
 }
+
+

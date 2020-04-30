@@ -48,27 +48,22 @@ public class Customerupdate extends Fragment {
                     fristname.setError("Field can't be empty");
                     return;
                 }
-                
                 if (lnameupdate.isEmpty()){
                     lastname.setError("Field can't be empty");
                     return;
                 }
-                
                 if (emailupdate.isEmpty()){
                     email.setError("Field can't be empty");
                     return;
                 }
-                
                 if (nicupdate.isEmpty()){
                     nic.setError("Field can't be empty");
                     return;
                 }
-                
                 if (phoneupdate.isEmpty()){
                     phone.setError("Field can't be empty");
                     return;
                 }
-
                 CustomerRepository customerreop = new CustomerRepository(getActivity().getApplication());
                 Customers cmodell = new Customers(Integer.parseInt(idupdate),fnameupdate,lnameupdate,emailupdate,nicupdate,phoneupdate,true);
                 customerreop.updateCustomer(cmodell);

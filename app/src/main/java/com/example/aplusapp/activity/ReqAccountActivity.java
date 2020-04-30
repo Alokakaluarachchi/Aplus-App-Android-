@@ -79,23 +79,27 @@ public class ReqAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(TextUtils.isEmpty(txtUserName.getText().toString())){
-                    Toasty.warning(getApplicationContext(), "Username is required !", Toast.LENGTH_SHORT, true).show();
+                    Toasty.warning(getApplicationContext(),
+                            "Username is required !", Toast.LENGTH_SHORT, true).show();
                     return;
                 }
 
                 if(TextUtils.isEmpty(txtEmail.getText().toString())){
-                    Toasty.warning(getApplicationContext(), "Email is required !", Toast.LENGTH_SHORT, true).show();
+                    Toasty.warning(getApplicationContext(),
+                            "Email is required !", Toast.LENGTH_SHORT, true).show();
                     return;
                 }
 
 
                 if(!CommonServices.isValidEmail(txtEmail.getText())){
-                    Toasty.warning(getApplicationContext(), "Please enter correct Email address !", Toast.LENGTH_SHORT, true).show();
+                    Toasty.warning(getApplicationContext(),
+                            "Please enter correct Email address !", Toast.LENGTH_SHORT, true).show();
                     return;
                 }
 
                 if(spinner.getSelectedItem() == null){
-                    Toasty.warning(getApplicationContext(), "Please select role !", Toast.LENGTH_SHORT, true).show();
+                    Toasty.warning(getApplicationContext(),
+                            "Please select role !", Toast.LENGTH_SHORT, true).show();
                     return;
                 }
 

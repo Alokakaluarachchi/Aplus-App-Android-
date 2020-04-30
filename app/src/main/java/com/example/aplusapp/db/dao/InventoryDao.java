@@ -31,4 +31,6 @@ public interface InventoryDao {
     @Query("SELECT * FROM inventory ORDER BY InventoryName asc")
     LiveData<List<Inventory>> fetchAll();
 
+    @Query("select * from inventory where ID = :ID")
+    Inventory findByID(int ID);
 }

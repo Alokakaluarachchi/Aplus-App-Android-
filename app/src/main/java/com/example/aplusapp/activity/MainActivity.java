@@ -132,9 +132,6 @@ public class MainActivity extends AppCompatActivity {
 
                             return;
                         }
-                        //saving data to the database. separate from main thread !.
-                        //new DbProcess(response.body()).execute();
-
                         //set to cache
                         try {
                             if(checkBox.isChecked()){

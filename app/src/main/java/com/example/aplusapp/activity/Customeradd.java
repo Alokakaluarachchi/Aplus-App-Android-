@@ -15,9 +15,6 @@ import com.example.aplusapp.model.Customers;
 
 
 public class Customeradd extends Fragment {
-
-
-
     private Button add;
     private EditText Id;
     private EditText fristname;
@@ -50,22 +47,18 @@ public class Customeradd extends Fragment {
                     fristname.setError("Field can't be empty");
                     return;
                 }
-
                 if (lnameinput.isEmpty()) {
                     lastname.setError("Field can't be empty");
                     return;
                 }
-
                 if (emailinput.isEmpty()) {
                     email.setError("Field can't be empty");
                     return;
                 }
-
                 if (nicinput.isEmpty()) {
                     nic.setError("Field can't be empty");
                     return;
                 }
-
                 if (phoneinput.isEmpty()) {
                     phone.setError("Field can't be empty");
                     return;
@@ -76,8 +69,6 @@ public class Customeradd extends Fragment {
                 customerrep.insertCustomer(cmodel);
             }
         });
-
-
         return view;
     }
 }
