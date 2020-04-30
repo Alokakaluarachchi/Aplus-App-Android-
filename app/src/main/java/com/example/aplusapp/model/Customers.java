@@ -24,9 +24,7 @@ public class Customers {
     private String NIC;
     @NotNull
     private String Phone;
-
     private boolean IsActive;
-
     public Customers(@NonNull int ID,@NotNull String Fristname, @NotNull String Lastname, @NotNull String Email, @NotNull String NIC, @NotNull String Phone, Boolean IsActive) {
         this.ID = ID;
         this.Fristname = Fristname;
@@ -36,13 +34,10 @@ public class Customers {
         this.Phone = Phone;
         this.IsActive = IsActive;
     }
-
     @Ignore
     public Customers(String NIC) {
         this.NIC= NIC;
     }
-
-
     public int getID() { return ID; }
 
     @NotNull
