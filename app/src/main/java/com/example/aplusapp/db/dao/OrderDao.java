@@ -1,5 +1,6 @@
 package com.example.aplusapp.db.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -29,12 +30,13 @@ public interface OrderDao {
     @Query("SELECT * FROM `order` ORDER BY ID ")
     List<Order> getOrder();
 
+    @Query("SELECT * FROM `order` ORDER BY ID")
+    LiveData<List<Order>> fetchAll();
+
     @Query("delete from `order`")
     void removeAll();
 
     @Query("delete from `order` where ID = :ID")
     void removeByID(int ID);
-
-
 
 }
