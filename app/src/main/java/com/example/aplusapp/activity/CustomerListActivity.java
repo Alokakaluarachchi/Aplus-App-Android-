@@ -45,7 +45,7 @@ public class CustomerListActivity extends Fragment implements CallBackListener {
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
         btnCustomer = rootView.findViewById(R.id.btnRequestAccount);
 
-        mAdapter = new CustomerAdapter(customerList);
+        mAdapter = new CustomerAdapter(customerList, getContext());
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
