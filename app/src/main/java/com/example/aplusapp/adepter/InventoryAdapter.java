@@ -109,7 +109,8 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.MyVi
                                         int id = Integer.parseInt(inventoryName.getTag().toString());
                                         repo.removeInventory(id);
                                         notifyDataSetChanged();
-                                        circularProgressBarDialog.dismiss();
+                                        inventoryListActivity.LoadInventoryList();
+                                        //circularProgressBarDialog.dismiss();
                                     }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -156,6 +157,7 @@ public class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.MyVi
         Inventory inventory = inventoryList.get(position);
         holder.inventoryName.setText(inventory.getInventoryName());
         holder.inventoryId.setText(Integer.toString(inventory.getID()));
+        holder.inventoryName.setTag(inventory.getID());
         holder.inventoryQty.setText(Integer.toString(inventory.getQuantity()));
         holder.inventoryPrice.setText(inventory.getSalesPrice());
 
