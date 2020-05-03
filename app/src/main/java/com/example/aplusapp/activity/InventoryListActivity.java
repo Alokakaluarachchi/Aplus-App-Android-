@@ -88,7 +88,7 @@ public class InventoryListActivity extends Fragment {
     }
 
 
-    private void LoadInventoryList() {
+    public void LoadInventoryList() {
         inventoryList.clear();
         InventoryRepository inventoryRepository = new InventoryRepository(getActivity().getApplication());
         inventoryRepository.fetchAllUsers().observe(getViewLifecycleOwner(), new Observer<List<Inventory>>() {

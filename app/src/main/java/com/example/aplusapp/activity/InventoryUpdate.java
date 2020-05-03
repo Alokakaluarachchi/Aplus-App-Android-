@@ -27,7 +27,7 @@ public class InventoryUpdate extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle   savedInstanceState) {
         View view = inflater.inflate(R.layout.update_inventory, container, false);
         update = view.findViewById(R.id.update);
-        uid = view.findViewById(R.id.icode);
+        uid = view.findViewById(R.id.ucode);
         uname = view.findViewById(R.id.uname);
         uquantity= view.findViewById(R.id.uqty);
         usalesprice = view.findViewById(R.id.uprice);
